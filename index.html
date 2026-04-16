@@ -57,7 +57,7 @@
     }
 
     /* Glassmorphism for all cards */
-    .navbar, .card, .forex-area, .trust-badge, .video-wrapper {
+    .navbar, .card, .forex-area, .trust-badge, .video-wrapper, .social-links-section {
       backdrop-filter: blur(10px);
       background: rgba(10, 15, 28, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -78,6 +78,7 @@
     .nav-buttons {
       display: flex;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .float-btn {
@@ -103,7 +104,10 @@
       animation-delay: 0s;
     }
     .float-btn:nth-child(2) {
-      animation-delay: 0.5s;
+      animation-delay: 0.3s;
+    }
+    .float-btn:nth-child(3) {
+      animation-delay: 0.6s;
     }
 
     /* Floating animation */
@@ -158,6 +162,20 @@
       font-size: 1.1rem;
     }
 
+    /* NEW: Forex Portal button style - Yellow/Orange Blend */
+    .btn-forex-portal {
+      background: linear-gradient(135deg, #FFD700, #FF8C00);
+      color: #1e1e2a;
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-forex-portal::before {
+      content: "🌐";
+      margin-right: 6px;
+      font-size: 1.1rem;
+    }
+
     /* Glow effect on hover */
     .btn-deriv:hover {
       box-shadow: 0 8px 25px rgba(43, 126, 58, 0.6);
@@ -167,6 +185,84 @@
     .btn-forex:hover {
       box-shadow: 0 8px 25px rgba(43, 126, 58, 0.4);
       border-color: #2b7e3a;
+    }
+
+    .btn-forex-portal:hover {
+      box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+      background: linear-gradient(135deg, #FFE033, #FFA500);
+    }
+
+    /* Social Links Section Styles */
+    .social-links-section {
+      margin: 48px 0;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .social-title {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .social-subtitle {
+      color: #94a3b8;
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-link {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 60px;
+      padding: 14px 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      gap: 16px;
+    }
+
+    /* Individual social colors on hover */
+    .social-link.telegram:hover { 
+      background: #0088cc; 
+      box-shadow: 0 8px 20px #0088cc40;
+    }
+    .social-link.tiktok:hover { 
+      background: #000000; 
+      box-shadow: 0 8px 20px #ff0040;
+      border-color: #ff0040;
+    }
+    .social-link.youtube:hover { 
+      background: #ff0000; 
+      box-shadow: 0 8px 20px #ff000060;
+    }
+    .social-link.whatsapp:hover { 
+      background: #25D366; 
+      box-shadow: 0 8px 20px #25D36660;
+    }
+
+    .social-icon {
+      font-size: 1.8rem;
     }
 
     /* Rest of your existing styles */
@@ -360,6 +456,13 @@
         padding: 8px 20px;
         font-size: 0.9rem;
       }
+      .social-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      .social-icon {
+        font-size: 1.4rem;
+      }
     }
 
     /* Scroll to top button */
@@ -402,6 +505,7 @@
     <div class="nav-buttons">
       <a href="#deriv-tools" class="float-btn btn-deriv">Deriv API</a>
       <a href="#forex-bot" class="float-btn btn-forex">Forex Bot</a>
+      <a href="https://calekyz.github.io/mt5-bot/index.html" target="_blank" class="float-btn btn-forex-portal">Forex Portal</a>
     </div>
   </div>
 
@@ -444,9 +548,33 @@
     </div>
   </div>
 
-  <!-- YOUTUBE PLAYER - MOVED BELOW DERIV API SECTION -->
+  <!-- YOUTUBE PLAYER -->
   <div class="video-wrapper">
     <iframe src="https://www.youtube.com/embed/vqBOVnIVP7g?autoplay=0&rel=0" title="Calekyz FX Professional Trading Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- SOCIAL MEDIA LINKS SECTION - RIGHT BELOW YOUTUBE -->
+  <div class="social-links-section">
+    <h2 class="social-title">🌐 Join Our Trading Community</h2>
+    <p class="social-subtitle">Follow us for daily signals, education, and updates</p>
+    <div class="social-grid">
+      <a href="https://t.me/yourtelegram" target="_blank" class="https://t.me/calekyz254">
+        <span class="social-icon">📱</span>
+        <span>Telegram Channel</span>
+      </a>
+      <a href="https://tiktok.com/@yourusername" target="_blank" class="https://www.tiktok.com/@calekyz.com?_r=1&_t=ZP-95Xs3Mh3tqI">
+        <span class="social-icon">🎵</span>
+        <span>TikTok</span>
+      </a>
+      <a href="https://youtube.com/@yourchannel" target="_blank" class="https://youtube.com/@calekyztradingsite?si=TJx4ngIskL43R4d7">
+        <span class="social-icon">📺</span>
+        <span>YouTube</span>
+      </a>
+      <a href="https://chat.whatsapp.com/yourgroupinvite" target="_blank" class="https://chat.whatsapp.com/KCFkFMp2odbAvKEgnvWPSd">
+        <span class="social-icon">💬</span>
+        <span>WhatsApp Group</span>
+      </a>
+    </div>
   </div>
 
   <!-- FOREX AREA -->
