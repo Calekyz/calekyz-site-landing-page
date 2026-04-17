@@ -94,6 +94,49 @@
       gap: 20px;
     }
 
+    /* ========== NEW LOGO STYLES WITH IMAGE ========== */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #2b7e3a;
+      box-shadow: 0 0 15px rgba(43, 126, 58, 0.4);
+    }
+
+    .logo-text {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF, #94a3b8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo-text span {
+      color: #2b7e3a;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+
+    @media (max-width: 768px) {
+      .logo-img {
+        width: 38px;
+        height: 38px;
+      }
+      .logo-text {
+        font-size: 1.3rem;
+      }
+    }
+    /* ============================================= */
+
     /* ========== FLOATING ANIMATED BUTTONS ========== */
     .nav-buttons {
       display: flex;
@@ -334,19 +377,6 @@
       transform: translateY(-2px);
     }
 
-    .logo {
-      font-size: 1.7rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #FFFFFF, #94a3b8);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .logo span {
-      color: #2b7e3a;
-    }
-
     .hero {
       padding: 60px 0 40px;
     }
@@ -519,9 +549,12 @@
 <body>
 
 <div class="container">
-  <!-- Navigation with FLOATING ANIMATED BUTTONS -->
+  <!-- Navigation with LOGO IMAGE + TEXT -->
   <div class="navbar">
-    <div class="logo">Calekyz <span>FX</span></div>
+    <div class="logo-container">
+      <img src="https://i.postimg.cc/ZncX8K9C/Chat-GPT-Image-Apr-17-2026-10-42-36-AM.png" alt="Calekyz FX Logo" class="logo-img">
+      <div class="logo-text">Calekyz <span>FX</span></div>
+    </div>
     <div class="nav-buttons">
       <a href="#deriv-tools" class="float-btn btn-deriv">Deriv API</a>
       <a href="#forex-bot" class="float-btn btn-forex">Forex Bot</a>
@@ -558,7 +591,7 @@
         <div>
           <div style="font-size: 1rem; color: #86efac; font-weight: 600;">DERIV • PROFESSIONAL API</div>
           <h2 style="font-size: 1.9rem; margin: 12px 0 16px;">Automated Binary Trading</h2>
-          <p style="color: #cbd5e6; max-width: 550px; font-size: 1.05rem;">Login to our Deriv‑powered professional API with advanced tools and automated bots for trading binary options (FREE). Seamless integration, real-time signals, and strategy automation.</p>
+          <p style="color: #cbd5e6; max-width: 550px; font-size: 1.05rem;">Login to our Deriv‑powered professional API with advanced tools and automated bots for trading binary options(FREE). Seamless integration, real-time signals, and strategy automation.</p>
         </div>
         <div>
           <a href="https://calekyztradinghub.site" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 36px;">🚀 Start Trading with Deriv</a>
