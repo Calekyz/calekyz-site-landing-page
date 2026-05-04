@@ -85,7 +85,7 @@
     }
 
     .navbar {
-      padding: 20px 28px;
+      padding: 16px 28px;
       margin-top: 20px;
       display: flex;
       justify-content: space-between;
@@ -102,8 +102,8 @@
     }
 
     .logo-img {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid #2b7e3a;
@@ -111,7 +111,7 @@
     }
 
     .logo-text {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       font-weight: 800;
       background: linear-gradient(135deg, #FFFFFF, #94a3b8);
       -webkit-background-clip: text;
@@ -137,10 +137,10 @@
     }
     /* ============================================= */
 
-    /* ========== FLOATING ANIMATED BUTTONS ========== */
+    /* ========== FLOATING ANIMATED BUTTONS (REDUCED SIZE) ========== */
     .nav-buttons {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
@@ -148,11 +148,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 12px 28px;
+      gap: 6px;
+      padding: 8px 20px;
       border-radius: 40px;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.85rem;
       text-decoration: none;
       transition: all 0.3s ease;
       cursor: pointer;
@@ -179,7 +179,7 @@
         transform: translateY(0px);
       }
       50% {
-        transform: translateY(-8px);
+        transform: translateY(-5px);
       }
       100% {
         transform: translateY(0px);
@@ -207,8 +207,8 @@
 
     .btn-deriv::before {
       content: "⚡";
-      margin-right: 6px;
-      font-size: 1.1rem;
+      margin-right: 4px;
+      font-size: 0.9rem;
     }
 
     /* Forex button style */
@@ -221,11 +221,11 @@
 
     .btn-forex::before {
       content: "💱";
-      margin-right: 6px;
-      font-size: 1.1rem;
+      margin-right: 4px;
+      font-size: 0.9rem;
     }
 
-    /* NEW: Forex Portal button style - Yellow/Orange Blend */
+    /* Forex Portal button style - Yellow/Orange Blend */
     .btn-forex-portal {
       background: linear-gradient(135deg, #FFD700, #FF8C00);
       color: #1e1e2a;
@@ -235,8 +235,8 @@
 
     .btn-forex-portal::before {
       content: "🌐";
-      margin-right: 6px;
-      font-size: 1.1rem;
+      margin-right: 4px;
+      font-size: 0.9rem;
     }
 
     /* Glow effect on hover */
@@ -253,6 +253,65 @@
     .btn-forex-portal:hover {
       box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
       background: linear-gradient(135deg, #FFE033, #FFA500);
+    }
+
+    /* NEW: API Buttons inside the card (Legacy & New API) */
+    .api-buttons-group {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .api-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-legacy {
+      background: linear-gradient(135deg, #475569, #334155);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-legacy::before {
+      content: "📜";
+      margin-right: 6px;
+    }
+
+    .btn-new {
+      background: linear-gradient(135deg, #2b7e3a, #1a5a28);
+      color: white;
+      box-shadow: 0 4px 15px rgba(43, 126, 58, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-new::before {
+      content: "🆕";
+      margin-right: 6px;
+    }
+
+    .btn-legacy:hover, .btn-new:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-legacy:hover {
+      background: linear-gradient(135deg, #5a6a82, #475569);
+    }
+
+    .btn-new:hover {
+      background: linear-gradient(135deg, #3a9a4a, #2b7e3a);
     }
 
     /* Social Links Section Styles */
@@ -503,8 +562,8 @@
         text-align: center;
       }
       .float-btn {
-        padding: 8px 20px;
-        font-size: 0.9rem;
+        padding: 6px 16px;
+        font-size: 0.8rem;
       }
       .social-link {
         padding: 10px 20px;
@@ -512,6 +571,9 @@
       }
       .social-icon {
         font-size: 1.4rem;
+      }
+      .api-buttons-group {
+        justify-content: center;
       }
     }
 
@@ -549,7 +611,7 @@
 <body>
 
 <div class="container">
-  <!-- Navigation with NEW LOGO IMAGE + TEXT -->
+  <!-- Navigation with REDUCED BUTTONS in a straight line -->
   <div class="navbar">
     <div class="logo-container">
       <img src="https://i.postimg.cc/xCsZxjGF/Chat-GPT-Image-Apr-17-2026-10-54-53-AM.png" alt="Calekyz FX Logo" class="logo-img">
@@ -584,7 +646,7 @@
     </div>
   </div>
 
-  <!-- DERIV SECTION -->
+  <!-- DERIV SECTION WITH LEGACY & NEW API BUTTONS ADDED -->
   <div id="deriv-tools">
     <div class="card">
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px;">
@@ -592,6 +654,12 @@
           <div style="font-size: 1rem; color: #86efac; font-weight: 600;">DERIV • PROFESSIONAL API</div>
           <h2 style="font-size: 1.9rem; margin: 12px 0 16px;">Automated Binary Trading (FREE)</h2>
           <p style="color: #cbd5e6; max-width: 550px; font-size: 1.05rem;">Login to our Deriv‑powered professional API with advanced tools and automated bots for trading binary options. Seamless integration, real-time signals, and strategy automation.</p>
+          
+          <!-- NEW: Legacy API & New API Buttons added here -->
+          <div class="api-buttons-group">
+            <a href="https://calekyz.com" target="_blank" class="api-btn btn-legacy">Legacy API</a>
+            <a href="https://app.calekyz.com" target="_blank" class="api-btn btn-new">New API</a>
+          </div>
         </div>
         <div>
           <a href="https://calekyztradinghub.site" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 36px;">🚀 Start Trading with Deriv</a>
