@@ -8,7 +8,7 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Professional Fonts: Inter + SF Mono + JetBrains Mono -->
+  <!-- Professional Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <script type="application/ld+json">
@@ -43,7 +43,7 @@
       background: #0a0c15;
     }
 
-    /* Premium Background with gradient overlay */
+    /* Premium Background */
     body::before {
       content: "";
       position: fixed;
@@ -70,7 +70,7 @@
       z-index: -1;
     }
 
-    /* ========== SUPER PROFESSIONAL LOADER ========== */
+    /* ========== BLUE & GOLD LOADER ========== */
     .page-loader {
       position: fixed;
       top: 0;
@@ -93,7 +93,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.4;
+      opacity: 0.35;
     }
 
     .loader-content {
@@ -103,8 +103,14 @@
       backdrop-filter: blur(20px);
       padding: 48px 72px;
       border-radius: 32px;
-      border: 1px solid rgba(43, 126, 58, 0.3);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 100, 255, 0.4);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 100, 255, 0.2);
+      animation: borderPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes borderPulse {
+      0%, 100% { border-color: rgba(0, 100, 255, 0.4); box-shadow: 0 0 20px rgba(0, 100, 255, 0.2); }
+      50% { border-color: rgba(255, 215, 0, 0.6); box-shadow: 0 0 40px rgba(255, 215, 0, 0.3); }
     }
 
     .loader-logo {
@@ -112,9 +118,15 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #2b7e3a;
-      box-shadow: 0 0 30px rgba(43, 126, 58, 0.3);
+      border: 2px solid #0064ff;
+      box-shadow: 0 0 30px rgba(0, 100, 255, 0.4);
       margin-bottom: 24px;
+      animation: logoGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(0, 100, 255, 0.4); border-color: #0064ff; }
+      50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); border-color: #ffd700; }
     }
 
     .loader-text {
@@ -128,8 +140,10 @@
     }
 
     .loader-text span {
-      color: #2b7e3a;
-      background: none;
+      background: linear-gradient(135deg, #0064ff, #ffd700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       font-weight: 800;
     }
 
@@ -137,32 +151,74 @@
       display: flex;
       gap: 24px;
       justify-content: center;
-      margin: 24px 0;
+      margin: 24px 0 16px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
 
-    .ticker-up { color: #00ff88; }
-    .ticker-down { color: #ff4466; }
+    .ticker-up { color: #0064ff; animation: pulseBlue 1.5s ease-in-out infinite; }
+    .ticker-down { color: #ffd700; animation: pulseGold 1.8s ease-in-out infinite; }
+
+    @keyframes pulseBlue {
+      0%, 100% { opacity: 0.7; text-shadow: none; }
+      50% { opacity: 1; text-shadow: 0 0 5px #0064ff; }
+    }
+
+    @keyframes pulseGold {
+      0%, 100% { opacity: 0.7; text-shadow: none; }
+      50% { opacity: 1; text-shadow: 0 0 5px #ffd700; }
+    }
+
+    /* Active Users Counter */
+    .active-users {
+      margin: 16px 0;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .active-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #5a6a82;
+    }
+
+    .active-number {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0064ff, #ffd700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: numberPulse 1s ease-in-out infinite;
+    }
+
+    @keyframes numberPulse {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+
+    .active-sub {
+      font-size: 0.6rem;
+      color: #475569;
+    }
 
     .loader-dots {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
     .loader-dots span {
       width: 8px;
       height: 8px;
-      background: #2b7e3a;
+      background: #0064ff;
       border-radius: 50%;
       animation: bounce 0.6s ease-in-out infinite;
     }
 
-    .loader-dots span:nth-child(1) { animation-delay: 0s; }
-    .loader-dots span:nth-child(2) { animation-delay: 0.15s; }
-    .loader-dots span:nth-child(3) { animation-delay: 0.3s; }
+    .loader-dots span:nth-child(2) { background: #ffd700; animation-delay: 0.15s; }
+    .loader-dots span:nth-child(3) { background: #0064ff; animation-delay: 0.3s; }
 
     @keyframes bounce {
       0%, 100% { transform: translateY(0); opacity: 0.4; }
@@ -172,8 +228,8 @@
     .loading-percent {
       margin-top: 20px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: #2b7e3a;
+      font-size: 0.7rem;
+      color: #0064ff;
       letter-spacing: 2px;
     }
 
@@ -206,7 +262,7 @@
       margin-top: 24px;
       background: rgba(10, 15, 28, 0.6);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(0, 100, 255, 0.2);
       border-radius: 80px;
       display: flex;
       justify-content: space-between;
@@ -226,7 +282,7 @@
       height: 40px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1.5px solid #2b7e3a;
+      border: 1.5px solid #0064ff;
     }
 
     .logo-text {
@@ -240,11 +296,14 @@
     }
 
     .logo-text span {
-      color: #2b7e3a;
+      background: linear-gradient(135deg, #0064ff, #ffd700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       font-weight: 800;
     }
 
-    /* Premium Buttons */
+    /* Nav Buttons - Blue/Gold */
     .nav-buttons {
       display: flex;
       gap: 10px;
@@ -268,41 +327,42 @@
     }
 
     .btn-deriv {
-      background: rgba(43, 126, 58, 0.15);
-      color: #86efac;
-      border: 1px solid rgba(43, 126, 58, 0.4);
+      background: rgba(0, 100, 255, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(0, 100, 255, 0.4);
     }
 
     .btn-deriv:hover {
-      background: #2b7e3a;
+      background: #0064ff;
       color: white;
       transform: translateY(-2px);
     }
 
     .btn-forex {
-      background: rgba(255, 255, 255, 0.05);
-      color: #cbd5e1;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 215, 0, 0.1);
+      color: #fcd34d;
+      border: 1px solid rgba(255, 215, 0, 0.3);
     }
 
     .btn-forex:hover {
-      background: rgba(255, 255, 255, 0.12);
-      transform: translateY(-2px);
-    }
-
-    .btn-forex-portal {
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.15));
-      color: #fbbf24;
-      border: 1px solid rgba(251, 191, 36, 0.4);
-    }
-
-    .btn-forex-portal:hover {
-      background: linear-gradient(135deg, #FFD700, #FF8C00);
+      background: #ffd700;
       color: #0a0f1c;
       transform: translateY(-2px);
     }
 
-    /* Social Circles - Premium */
+    .btn-forex-portal {
+      background: linear-gradient(135deg, rgba(0, 100, 255, 0.1), rgba(255, 215, 0, 0.1));
+      color: #fcd34d;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .btn-forex-portal:hover {
+      background: linear-gradient(135deg, #0064ff, #ffd700);
+      color: #0a0f1c;
+      transform: translateY(-2px);
+    }
+
+    /* Social Circles */
     .social-circle-section {
       margin: 32px 0 24px;
       text-align: center;
@@ -335,7 +395,7 @@
       text-decoration: none;
       font-size: 1.3rem;
       transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(0, 100, 255, 0.2);
       opacity: 0;
       transform: scale(0.8);
       animation: fadeInScale 0.4s ease-out forwards;
@@ -366,7 +426,7 @@
     .social-circle.whatsapp { color: #25D366; }
     .social-circle.whatsapp:hover { background: #25D366; color: white; }
 
-    /* Hero Section - Premium */
+    /* Hero Section */
     .hero {
       padding: 48px 0 40px;
     }
@@ -385,8 +445,8 @@
     }
 
     .hero-badge {
-      background: rgba(43, 126, 58, 0.12);
-      color: #86efac;
+      background: linear-gradient(135deg, rgba(0, 100, 255, 0.12), rgba(255, 215, 0, 0.08));
+      color: #fcd34d;
       padding: 4px 14px;
       border-radius: 40px;
       font-size: 0.7rem;
@@ -395,7 +455,7 @@
       text-transform: uppercase;
       display: inline-block;
       margin-bottom: 24px;
-      border: 1px solid rgba(43, 126, 58, 0.3);
+      border: 1px solid rgba(255, 215, 0, 0.3);
     }
 
     .hero h1 {
@@ -406,6 +466,13 @@
       margin-bottom: 24px;
     }
 
+    .hero h1 span {
+      background: linear-gradient(135deg, #0064ff, #ffd700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
     .hero p {
       font-size: 1rem;
       color: #94a3b8;
@@ -414,22 +481,23 @@
       max-width: 500px;
     }
 
-    /* Premium Cards */
+    /* Cards */
     .card, .forex-area, .trust-badge, .video-wrapper {
       background: rgba(10, 15, 28, 0.5);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 100, 255, 0.15);
       border-radius: 24px;
     }
 
     .card {
       padding: 40px;
       margin-bottom: 48px;
-      transition: border-color 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .card:hover {
-      border-color: rgba(43, 126, 58, 0.3);
+      border-color: rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
     }
 
     /* API Buttons */
@@ -454,26 +522,26 @@
     }
 
     .btn-legacy {
-      background: rgba(71, 85, 105, 0.2);
-      color: #cbd5e1;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 100, 255, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(0, 100, 255, 0.3);
     }
 
     .btn-legacy:hover {
-      background: #475569;
+      background: #0064ff;
       color: white;
       transform: translateY(-2px);
     }
 
     .btn-new {
-      background: rgba(43, 126, 58, 0.2);
-      color: #86efac;
-      border: 1px solid rgba(43, 126, 58, 0.4);
+      background: rgba(255, 215, 0, 0.12);
+      color: #fcd34d;
+      border: 1px solid rgba(255, 215, 0, 0.3);
     }
 
     .btn-new:hover {
-      background: #2b7e3a;
-      color: white;
+      background: #ffd700;
+      color: #0a0f1c;
       transform: translateY(-2px);
     }
 
@@ -493,12 +561,12 @@
     }
 
     .btn-primary {
-      background: #2b7e3a;
+      background: linear-gradient(135deg, #0064ff, #0050cc);
       color: white;
     }
 
     .btn-primary:hover {
-      background: #1f5e2c;
+      background: linear-gradient(135deg, #0050cc, #0040aa);
       transform: translateY(-2px);
     }
 
@@ -534,7 +602,10 @@
       font-size: 3rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: #facc15;
+      background: linear-gradient(135deg, #0064ff, #ffd700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       margin: 20px 0;
       font-family: 'JetBrains Mono', monospace;
     }
@@ -585,14 +656,12 @@
       color: #64748b;
     }
 
-    /* Button Group */
     .button-group {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 48px 0 40px;
@@ -607,9 +676,8 @@
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: rgba(43, 126, 58, 0.8);
-      backdrop-filter: blur(8px);
-      color: white;
+      background: linear-gradient(135deg, #0064ff, #ffd700);
+      color: #0a0f1c;
       width: 44px;
       height: 44px;
       border-radius: 50%;
@@ -620,7 +688,8 @@
       opacity: 0;
       transition: all 0.2s;
       z-index: 100;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: none;
+      font-weight: bold;
     }
 
     .scroll-top.visible {
@@ -628,11 +697,9 @@
     }
 
     .scroll-top:hover {
-      background: #2b7e3a;
       transform: scale(1.05);
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
       .hero h1 { font-size: 2.2rem; }
@@ -645,22 +712,33 @@
       .social-circle { width: 40px; height: 40px; font-size: 1.1rem; }
       .loader-content { padding: 32px 40px; }
       .price-tag { font-size: 2.2rem; }
+      .active-number { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- PAGE LOADER -->
+<!-- PAGE LOADER WITH BLUE/GOLD & ACTIVE USERS -->
 <div class="page-loader" id="pageLoader">
   <canvas id="candleCanvas"></canvas>
   <div class="loader-content">
     <img src="https://i.postimg.cc/xCsZxjGF/Chat-GPT-Image-Apr-17-2026-10-54-53-AM.png" alt="Calekyz FX" class="loader-logo">
     <div class="loader-text">Calekyz <span>FX</span></div>
+    
+    <!-- Price Ticker -->
     <div class="price-ticker">
       <span class="ticker-up">↑ EUR/USD 1.08942</span>
       <span class="ticker-down">↓ DERIV TRADING</span>
       <span class="ticker-up">↑ WELCOME TO TRADING</span>
     </div>
+    
+    <!-- Active Users Counter with Animation -->
+    <div class="active-users">
+      <div class="active-label">LIVE ACTIVE TRADERS</div>
+      <div class="active-number" id="activeUserCount">0</div>
+      <div class="active-sub">Traders currently online</div>
+    </div>
+    
     <div class="loader-dots">
       <span></span>
       <span></span>
@@ -701,8 +779,8 @@
   <div class="hero">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="hero-badge">✦ PROFESSIONAL TRADING INFRASTRUCTURE</div>
-        <h1>Trade Smarter.<br>Automate with <span style="color:#2b7e3a;">Calekyz FX</span></h1>
+        <div class="hero-badge">✦ PROFESSIONAL TRADING INFRASTRUCTURE✦</div>
+        <h1>Trade Smarter.<br>Automate with <span>Calekyz FX</span></h1>
         <p>Enterprise-grade API tools for binary and forex markets. Low-latency execution, automated strategies, and real-time signals.</p>
         <div class="button-group">
           <a href="https://deriv.partners/rx?sidc=B7409B98-DAA5-4D02-9341-8A0621A99C68&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU67920" target="_blank" class="btn btn-primary">📈 CREATE DERIV ACCOUNT</a>
@@ -710,7 +788,7 @@
         </div>
       </div>
       <div style="flex:0.7;">
-        <div style="background: rgba(43, 126, 58, 0.05); border: 1px solid rgba(43, 126, 58, 0.2); border-radius: 24px; padding: 32px; text-align: center;">
+        <div style="background: linear-gradient(135deg, rgba(0, 100, 255, 0.05), rgba(255, 215, 0, 0.05)); border: 1px solid rgba(0, 100, 255, 0.2); border-radius: 24px; padding: 32px; text-align: center;">
           <div style="font-size: 2.5rem; opacity: 0.7;">⚡</div>
           <div style="font-weight: 600; margin: 12px 0 4px; font-size: 0.9rem;">100% API POWERED</div>
           <div style="font-size: 0.7rem; color: #5a6a82;">Real-time • Low latency • 24/7</div>
@@ -724,7 +802,7 @@
     <div class="card">
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 32px;">
         <div>
-          <div style="font-size: 0.7rem; color: #86efac; letter-spacing: 1px; margin-bottom: 12px;">DERIV • PROFESSIONAL API</div>
+          <div style="font-size: 0.7rem; color: #60a5fa; letter-spacing: 1px; margin-bottom: 12px;">DERIV • PROFESSIONAL API</div>
           <h2 style="font-size: 1.8rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 16px;">Automated Binary Trading</h2>
           <p style="color: #94a3b8; max-width: 500px; font-size: 0.9rem; line-height: 1.6;">Connect to our institutional API for automated binary options trading. Real-time signals, strategy automation, and seamless execution.</p>
           <div class="api-buttons-group">
@@ -747,12 +825,12 @@
 
   <!-- Forex Bot -->
   <div id="forex-bot" class="forex-area">
-    <div style="font-size: 0.7rem; color: #facc15; letter-spacing: 1px;">✦ PROPRIETARY SYSTEM</div>
+    <div style="font-size: 0.7rem; color: #fcd34d; letter-spacing: 1px;">✦ PROPRIETARY SYSTEM</div>
     <h2 style="font-size: 1.8rem; font-weight: 600; margin: 16px 0;">Forex Bot — Fully Automated</h2>
     <p style="max-width: 500px; margin: 0 auto; color: #94a3b8; font-size: 0.9rem;">MT4/MT5 compatible. Risk management, live monitoring, lifetime updates.</p>
-    <div class="price-tag">$150 USD</div>
+    <div class="price-tag">$135 USD</div>
     <a href="https://wa.me/qr/CE6MKWJWBGRVG1" target="_blank" class="btn btn-whatsapp">📲 CONTACT ON WHATSAPP</a>
-    <p style="margin-top: 20px; font-size: 0.7rem; color: #5a6a82;">Delivery within 24h • Setup included</p>
+    <p style="margin-top: 20px; font-size: 0.7rem; color: #5a6a82;">Delivery within 12h • Setup included</p>
   </div>
 
   <!-- Trust -->
@@ -815,9 +893,10 @@
         c.x = Math.random() * canvas.width;
         c.isGreen = Math.random() > 0.5;
       }
-      ctx.fillStyle = c.isGreen ? 'rgba(0, 255, 136, 0.15)' : 'rgba(255, 68, 68, 0.15)';
+      // Blue for up, Gold for down
+      ctx.fillStyle = c.isGreen ? 'rgba(0, 100, 255, 0.15)' : 'rgba(255, 215, 0, 0.12)';
       ctx.fillRect(c.x - c.width/2, c.y - c.height, c.width, c.height);
-      ctx.strokeStyle = c.isGreen ? '#00ff88' : '#ff4466';
+      ctx.strokeStyle = c.isGreen ? '#0064ff' : '#ffd700';
       ctx.lineWidth = 1;
       ctx.strokeRect(c.x - c.width/2, c.y - c.height, c.width, c.height);
     }
@@ -825,7 +904,7 @@
   }
   drawCandles();
   
-  // Loader percentage
+  // Loader percentage (0 to 100 over 5 seconds)
   let percent = 0;
   const percentInterval = setInterval(() => {
     if (percent < 100) {
@@ -834,6 +913,20 @@
     }
   }, 100);
   
+  // Active users counter animation (counts up to 809)
+  let activeCount = 0;
+  const targetActive = 809;
+  const activeInterval = setInterval(() => {
+    if (activeCount < targetActive) {
+      activeCount += Math.ceil(targetActive / 50); // Smooth increment
+      if (activeCount > targetActive) activeCount = targetActive;
+      document.getElementById('activeUserCount').innerText = activeCount.toLocaleString();
+    } else {
+      clearInterval(activeInterval);
+    }
+  }, 100);
+  
+  // Hide loader after 5 seconds
   setTimeout(() => {
     const loader = document.getElementById('pageLoader');
     const mainContent = document.getElementById('mainContent');
