@@ -40,10 +40,10 @@
       line-height: 1.5;
       scroll-behavior: smooth;
       position: relative;
-      background: #0a0c15;
+      background: #0a0e17;
     }
 
-    /* Premium Background */
+    /* Background with your wallpaper */
     body::before {
       content: "";
       position: fixed;
@@ -51,7 +51,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://i.postimg.cc/cC8YCxHq/setup.jpg');
+      background-image: url('https://i.postimg.cc/0NNMQ0hp/Forex-Trading-and-Chart-Wallpapers-Collection.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -66,26 +66,26 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.92), rgba(5, 10, 20, 0.88));
+      background: rgba(0, 0, 0, 0.75);
       z-index: -1;
     }
 
-    /* ========== BLUE & GOLD LOADER ========== */
+    /* ========== ENHANCED LOADER ========== */
     .page-loader {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: #07090f;
+      background: #0a0e17;
       z-index: 9999;
       display: flex;
       justify-content: center;
       align-items: center;
       transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
-      overflow: hidden;
     }
 
+    /* Enhanced Candlestick Canvas */
     #candleCanvas {
       position: absolute;
       top: 0;
@@ -93,24 +93,36 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.35;
+      opacity: 0.3;
     }
 
     .loader-content {
       text-align: center;
       z-index: 2;
-      background: rgba(7, 9, 15, 0.85);
+      background: rgba(10, 14, 23, 0.92);
       backdrop-filter: blur(20px);
       padding: 48px 72px;
       border-radius: 32px;
-      border: 1px solid rgba(0, 100, 255, 0.4);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 100, 255, 0.2);
+      border: 2px solid transparent;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
       animation: borderPulse 2s ease-in-out infinite;
+      position: relative;
     }
 
+    /* Pulsing border animation */
     @keyframes borderPulse {
-      0%, 100% { border-color: rgba(0, 100, 255, 0.4); box-shadow: 0 0 20px rgba(0, 100, 255, 0.2); }
-      50% { border-color: rgba(255, 215, 0, 0.6); box-shadow: 0 0 40px rgba(255, 215, 0, 0.3); }
+      0% {
+        border-color: rgba(0, 100, 255, 0.5);
+        box-shadow: 0 0 20px rgba(0, 100, 255, 0.2), inset 0 0 10px rgba(0, 100, 255, 0.05);
+      }
+      50% {
+        border-color: rgba(255, 215, 0, 0.7);
+        box-shadow: 0 0 50px rgba(255, 215, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.1);
+      }
+      100% {
+        border-color: rgba(0, 100, 255, 0.5);
+        box-shadow: 0 0 20px rgba(0, 100, 255, 0.2), inset 0 0 10px rgba(0, 100, 255, 0.05);
+      }
     }
 
     .loader-logo {
@@ -144,7 +156,6 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      font-weight: 800;
     }
 
     .price-ticker {
@@ -156,23 +167,27 @@
       font-size: 0.75rem;
     }
 
-    .ticker-up { color: #0064ff; animation: pulseBlue 1.5s ease-in-out infinite; }
-    .ticker-down { color: #ffd700; animation: pulseGold 1.8s ease-in-out infinite; }
-
-    @keyframes pulseBlue {
-      0%, 100% { opacity: 0.7; text-shadow: none; }
-      50% { opacity: 1; text-shadow: 0 0 5px #0064ff; }
+    .ticker-up { 
+      color: #00ff88;
+      animation: pulseGreen 1.5s ease-in-out infinite;
+    }
+    .ticker-down { 
+      color: #ff4466;
+      animation: pulseRed 1.8s ease-in-out infinite;
     }
 
-    @keyframes pulseGold {
+    @keyframes pulseGreen {
       0%, 100% { opacity: 0.7; text-shadow: none; }
-      50% { opacity: 1; text-shadow: 0 0 5px #ffd700; }
+      50% { opacity: 1; text-shadow: 0 0 5px #00ff88; }
     }
 
-    /* Active Users Counter */
+    @keyframes pulseRed {
+      0%, 100% { opacity: 0.7; text-shadow: none; }
+      50% { opacity: 1; text-shadow: 0 0 5px #ff4466; }
+    }
+
     .active-users {
       margin: 16px 0;
-      font-family: 'JetBrains Mono', monospace;
     }
 
     .active-label {
@@ -189,40 +204,35 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      animation: numberPulse 1s ease-in-out infinite;
+      animation: countPulse 1s ease-in-out infinite;
     }
 
-    @keyframes numberPulse {
+    @keyframes countPulse {
       0%, 100% { opacity: 0.8; transform: scale(1); }
       50% { opacity: 1; transform: scale(1.02); }
-    }
-
-    .active-sub {
-      font-size: 0.6rem;
-      color: #475569;
     }
 
     .loader-dots {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
+      gap: 12px;
+      margin-top: 24px;
     }
 
     .loader-dots span {
-      width: 8px;
-      height: 8px;
-      background: #0064ff;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      animation: bounce 0.6s ease-in-out infinite;
+      animation: dotBounce 0.6s ease-in-out infinite;
     }
 
+    .loader-dots span:nth-child(1) { background: #0064ff; animation-delay: 0s; }
     .loader-dots span:nth-child(2) { background: #ffd700; animation-delay: 0.15s; }
     .loader-dots span:nth-child(3) { background: #0064ff; animation-delay: 0.3s; }
 
-    @keyframes bounce {
+    @keyframes dotBounce {
       0%, 100% { transform: translateY(0); opacity: 0.4; }
-      50% { transform: translateY(-6px); opacity: 1; }
+      50% { transform: translateY(-8px); opacity: 1; }
     }
 
     .loading-percent {
@@ -240,7 +250,7 @@
 
     .main-content {
       opacity: 0;
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 0.8s ease-out;
     }
 
     .main-content.visible {
@@ -256,11 +266,11 @@
       z-index: 2;
     }
 
-    /* Premium Navbar */
+    /* Navbar */
     .navbar {
-      padding: 16px 28px;
+      padding: 14px 28px;
       margin-top: 24px;
-      background: rgba(10, 15, 28, 0.6);
+      background: rgba(15, 23, 42, 0.7);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(0, 100, 255, 0.2);
       border-radius: 80px;
@@ -288,7 +298,6 @@
     .logo-text {
       font-size: 1.4rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
       background: linear-gradient(135deg, #FFFFFF, #cbd5e1);
       -webkit-background-clip: text;
       background-clip: text;
@@ -300,10 +309,8 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      font-weight: 800;
     }
 
-    /* Nav Buttons - Blue/Gold */
     .nav-buttons {
       display: flex;
       gap: 10px;
@@ -313,17 +320,13 @@
     .float-btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
       padding: 8px 22px;
       border-radius: 40px;
       font-weight: 600;
       font-size: 0.8rem;
-      letter-spacing: 0.3px;
       text-decoration: none;
       transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
     }
 
     .btn-deriv {
@@ -387,7 +390,7 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
@@ -416,17 +419,14 @@
 
     .social-circle.telegram { color: #0088cc; }
     .social-circle.telegram:hover { background: #0088cc; color: white; }
-
     .social-circle.tiktok { color: #ffffff; }
-    .social-circle.tiktok:hover { background: #000; color: #ff0040; border-color: #ff0040; }
-
+    .social-circle.tiktok:hover { background: #000; color: #ff0040; }
     .social-circle.youtube { color: #ff0000; }
     .social-circle.youtube:hover { background: #ff0000; color: white; }
-
     .social-circle.whatsapp { color: #25D366; }
     .social-circle.whatsapp:hover { background: #25D366; color: white; }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
       padding: 48px 0 40px;
     }
@@ -445,17 +445,16 @@
     }
 
     .hero-badge {
-      background: linear-gradient(135deg, rgba(0, 100, 255, 0.12), rgba(255, 215, 0, 0.08));
-      color: #fcd34d;
+      background: rgba(0, 100, 255, 0.12);
+      color: #60a5fa;
       padding: 4px 14px;
       border-radius: 40px;
       font-size: 0.7rem;
       font-weight: 600;
-      letter-spacing: 0.5px;
       text-transform: uppercase;
       display: inline-block;
       margin-bottom: 24px;
-      border: 1px solid rgba(255, 215, 0, 0.3);
+      border: 1px solid rgba(0, 100, 255, 0.3);
     }
 
     .hero h1 {
@@ -475,15 +474,37 @@
 
     .hero p {
       font-size: 1rem;
-      color: #94a3b8;
+      color: #cbd5e1;
       line-height: 1.6;
       margin-bottom: 32px;
       max-width: 500px;
     }
 
+    .api-powered-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 100, 255, 0.08);
+      border: 1px solid rgba(0, 100, 255, 0.2);
+      border-radius: 60px;
+      padding: 6px 18px;
+      margin-top: 8px;
+    }
+
+    .api-powered-text {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #60a5fa;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .api-powered-text strong {
+      color: #ffd700;
+    }
+
     /* Cards */
     .card, .forex-area, .trust-badge, .video-wrapper {
-      background: rgba(10, 15, 28, 0.5);
+      background: rgba(15, 23, 42, 0.7);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(0, 100, 255, 0.15);
       border-radius: 24px;
@@ -496,11 +517,9 @@
     }
 
     .card:hover {
-      border-color: rgba(255, 215, 0, 0.4);
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      border-color: rgba(0, 100, 255, 0.4);
     }
 
-    /* API Buttons */
     .api-buttons-group {
       display: flex;
       gap: 14px;
@@ -545,7 +564,6 @@
       transform: translateY(-2px);
     }
 
-    /* Primary Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -566,8 +584,8 @@
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, #0050cc, #0040aa);
       transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 100, 255, 0.3);
     }
 
     .btn-secondary {
@@ -591,7 +609,6 @@
       transform: translateY(-2px);
     }
 
-    /* Forex Area */
     .forex-area {
       padding: 48px 40px;
       margin: 48px 0;
@@ -601,7 +618,6 @@
     .price-tag {
       font-size: 3rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
       background: linear-gradient(135deg, #0064ff, #ffd700);
       -webkit-background-clip: text;
       background-clip: text;
@@ -610,7 +626,6 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* Video */
     .video-wrapper {
       margin: 48px 0;
       overflow: hidden;
@@ -624,7 +639,6 @@
       display: block;
     }
 
-    /* Trust Badges */
     .trust-badge {
       display: flex;
       flex-wrap: wrap;
@@ -642,7 +656,6 @@
     .trust-icon {
       font-size: 2rem;
       margin-bottom: 12px;
-      opacity: 0.8;
     }
 
     .trust-item h3 {
@@ -653,7 +666,7 @@
 
     .trust-item p {
       font-size: 0.75rem;
-      color: #64748b;
+      color: #94a3b8;
     }
 
     .button-group {
@@ -668,10 +681,9 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       margin-top: 48px;
       font-size: 0.75rem;
-      color: #475569;
+      color: #94a3b8;
     }
 
-    /* Scroll Top */
     .scroll-top {
       position: fixed;
       bottom: 30px;
@@ -689,7 +701,6 @@
       transition: all 0.2s;
       z-index: 100;
       border: none;
-      font-weight: bold;
     }
 
     .scroll-top.visible {
@@ -709,36 +720,28 @@
       .hero p { margin-left: auto; margin-right: auto; }
       .button-group { justify-content: center; }
       .float-btn { padding: 6px 16px; font-size: 0.7rem; }
-      .social-circle { width: 40px; height: 40px; font-size: 1.1rem; }
       .loader-content { padding: 32px 40px; }
-      .price-tag { font-size: 2.2rem; }
       .active-number { font-size: 1.5rem; }
+      .price-ticker { gap: 12px; font-size: 0.6rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- PAGE LOADER WITH BLUE/GOLD & ACTIVE USERS -->
 <div class="page-loader" id="pageLoader">
   <canvas id="candleCanvas"></canvas>
   <div class="loader-content">
     <img src="https://i.postimg.cc/xCsZxjGF/Chat-GPT-Image-Apr-17-2026-10-54-53-AM.png" alt="Calekyz FX" class="loader-logo">
     <div class="loader-text">Calekyz <span>FX</span></div>
-    
-    <!-- Price Ticker -->
     <div class="price-ticker">
       <span class="ticker-up">↑ EUR/USD 1.08942</span>
-      <span class="ticker-down">↓ DERIV TRADING</span>
-      <span class="ticker-up">↑ WELCOME TO TRADING</span>
+      <span class="ticker-down">↓ GBP/JPY 192.845</span>
+      <span class="ticker-up">↑ BTC/USD 67,234</span>
     </div>
-    
-    <!-- Active Users Counter with Animation -->
     <div class="active-users">
       <div class="active-label">LIVE ACTIVE TRADERS</div>
       <div class="active-number" id="activeUserCount">0</div>
-      <div class="active-sub">Traders currently online</div>
     </div>
-    
     <div class="loader-dots">
       <span></span>
       <span></span>
@@ -748,10 +751,8 @@
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="main-content" id="mainContent">
 <div class="container">
-  <!-- Navbar -->
   <div class="navbar">
     <div class="logo-container">
       <img src="https://i.postimg.cc/xCsZxjGF/Chat-GPT-Image-Apr-17-2026-10-54-53-AM.png" alt="Calekyz FX" class="logo-img">
@@ -764,7 +765,6 @@
     </div>
   </div>
 
-  <!-- Social Circles -->
   <div class="social-circle-section">
     <div class="social-circle-title">CONNECT — FOLLOW — TRADE</div>
     <div class="social-circle-container">
@@ -775,36 +775,32 @@
     </div>
   </div>
 
-  <!-- Hero -->
   <div class="hero">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="hero-badge">✦ PROFESSIONAL TRADING INFRASTRUCTURE✦</div>
+        <div class="hero-badge">✦ INSTITUTIONAL INFRASTRUCTURE</div>
         <h1>Trade Smarter.<br>Automate with <span>Calekyz FX</span></h1>
         <p>Enterprise-grade API tools for binary and forex markets. Low-latency execution, automated strategies, and real-time signals.</p>
         <div class="button-group">
           <a href="https://deriv.partners/rx?sidc=B7409B98-DAA5-4D02-9341-8A0621A99C68&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU67920" target="_blank" class="btn btn-primary">📈 CREATE DERIV ACCOUNT</a>
           <a href="https://one.justmarkets.link/a/f2yyz0kwcm" target="_blank" class="btn btn-secondary">💱 CREATE FOREX ACCOUNT</a>
         </div>
-      </div>
-      <div style="flex:0.7;">
-        <div style="background: linear-gradient(135deg, rgba(0, 100, 255, 0.05), rgba(255, 215, 0, 0.05)); border: 1px solid rgba(0, 100, 255, 0.2); border-radius: 24px; padding: 32px; text-align: center;">
-          <div style="font-size: 2.5rem; opacity: 0.7;">⚡</div>
-          <div style="font-weight: 600; margin: 12px 0 4px; font-size: 0.9rem;">100% API POWERED</div>
-          <div style="font-size: 0.7rem; color: #5a6a82;">Real-time • Low latency • 24/7</div>
+        <div class="api-powered-badge">
+          <span>⚡</span>
+          <span class="api-powered-text"><strong>100% API POWERED</strong> • REAL-TIME • LOW LATENCY</span>
         </div>
       </div>
+      <div style="flex:0.5;"></div>
     </div>
   </div>
 
-  <!-- Deriv API Section -->
   <div id="deriv-tools">
     <div class="card">
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 32px;">
         <div>
           <div style="font-size: 0.7rem; color: #60a5fa; letter-spacing: 1px; margin-bottom: 12px;">DERIV • PROFESSIONAL API</div>
           <h2 style="font-size: 1.8rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 16px;">Automated Binary Trading</h2>
-          <p style="color: #94a3b8; max-width: 500px; font-size: 0.9rem; line-height: 1.6;">Connect to our institutional API for automated binary options trading. Real-time signals, strategy automation, and seamless execution.</p>
+          <p style="color: #cbd5e1; max-width: 500px; font-size: 0.9rem; line-height: 1.6;">Connect to our institutional API for automated binary options trading. Real-time signals, strategy automation, and seamless execution.</p>
           <div class="api-buttons-group">
             <a href="https://calekyz.com" target="_blank" class="api-btn btn-legacy">📜 LEGACY API</a>
             <a href="https://app.calekyz.com" target="_blank" class="api-btn btn-new">🆕 NEW API</a>
@@ -818,22 +814,19 @@
     </div>
   </div>
 
-  <!-- Video -->
   <div class="video-wrapper">
     <iframe src="https://www.youtube.com/embed/vqBOVnIVP7g?autoplay=0&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
-  <!-- Forex Bot -->
   <div id="forex-bot" class="forex-area">
     <div style="font-size: 0.7rem; color: #fcd34d; letter-spacing: 1px;">✦ PROPRIETARY SYSTEM</div>
     <h2 style="font-size: 1.8rem; font-weight: 600; margin: 16px 0;">Forex Bot — Fully Automated</h2>
-    <p style="max-width: 500px; margin: 0 auto; color: #94a3b8; font-size: 0.9rem;">MT4/MT5 compatible. Risk management, live monitoring, lifetime updates.</p>
-    <div class="price-tag">$135 USD</div>
+    <p style="max-width: 500px; margin: 0 auto; color: #cbd5e1; font-size: 0.9rem;">MT4/MT5 compatible. Risk management, live monitoring, lifetime updates.</p>
+    <div class="price-tag">$150 USD</div>
     <a href="https://wa.me/qr/CE6MKWJWBGRVG1" target="_blank" class="btn btn-whatsapp">📲 CONTACT ON WHATSAPP</a>
-    <p style="margin-top: 20px; font-size: 0.7rem; color: #5a6a82;">Delivery within 12h • Setup included</p>
+    <p style="margin-top: 20px; font-size: 0.7rem; color: #5a6a82;">Delivery within 24h • Setup included</p>
   </div>
 
-  <!-- Trust -->
   <div class="trust-badge">
     <div class="trust-item"><div class="trust-icon">🔒</div><h3>Transparent Execution</h3><p>Real quotes, no hidden spreads</p></div>
     <div class="trust-item"><div class="trust-icon">⚡</div><h3>24/7 Automation</h3><p>Dedicated infrastructure</p></div>
@@ -841,7 +834,6 @@
     <div class="trust-item"><div class="trust-icon">🛡️</div><h3>Tier-1 Brokers</h3><p>Deriv • JustMarkets</p></div>
   </div>
 
-  <!-- Final CTA -->
   <div style="text-align: center; margin: 40px 0 20px;">
     <p style="margin-bottom: 24px; font-size: 1rem; font-weight: 500;">Ready to scale your trading?</p>
     <div class="button-group" style="justify-content: center;">
@@ -860,7 +852,7 @@
 <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
 <script>
-  // Canvas candles
+  // ========== ENHANCED CANDLESTICK ANIMATION ==========
   const canvas = document.getElementById('candleCanvas');
   const ctx = canvas.getContext('2d');
   
@@ -871,40 +863,90 @@
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
   
+  // Create realistic candles with wicks
   let candles = [];
-  for (let i = 0; i < 25; i++) {
+  const CANDLE_COUNT = 30;
+  
+  for (let i = 0; i < CANDLE_COUNT; i++) {
     candles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      height: 35 + Math.random() * 70,
-      width: 6 + Math.random() * 8,
+      bodyHeight: 25 + Math.random() * 60,
+      width: 6 + Math.random() * 10,
       isGreen: Math.random() > 0.5,
-      speed: 0.4 + Math.random() * 1.2,
+      speed: 0.3 + Math.random() * 1,
+      wickTop: 15 + Math.random() * 25,
+      wickBottom: 15 + Math.random() * 25,
     });
   }
   
   function drawCandles() {
     if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
     for (let c of candles) {
+      // Move candles upward
       c.y -= c.speed;
-      if (c.y + c.height < 0) {
-        c.y = canvas.height;
+      
+      // Reset when off screen
+      if (c.y + c.bodyHeight + c.wickBottom < 0) {
+        c.y = canvas.height + c.bodyHeight;
         c.x = Math.random() * canvas.width;
         c.isGreen = Math.random() > 0.5;
+        c.bodyHeight = 25 + Math.random() * 60;
+        c.wickTop = 15 + Math.random() * 25;
+        c.wickBottom = 15 + Math.random() * 25;
       }
-      // Blue for up, Gold for down
-      ctx.fillStyle = c.isGreen ? 'rgba(0, 100, 255, 0.15)' : 'rgba(255, 215, 0, 0.12)';
-      ctx.fillRect(c.x - c.width/2, c.y - c.height, c.width, c.height);
-      ctx.strokeStyle = c.isGreen ? '#0064ff' : '#ffd700';
+      
+      const candleTop = c.y - c.bodyHeight;
+      const candleBottom = c.y;
+      const halfWidth = c.width / 2;
+      
+      // Draw wick (top)
+      ctx.beginPath();
+      ctx.strokeStyle = c.isGreen ? 'rgba(0, 255, 136, 0.6)' : 'rgba(255, 68, 102, 0.6)';
+      ctx.lineWidth = 1.5;
+      ctx.moveTo(c.x, candleTop);
+      ctx.lineTo(c.x, candleTop - c.wickTop);
+      ctx.stroke();
+      
+      // Draw wick (bottom)
+      ctx.beginPath();
+      ctx.moveTo(c.x, candleBottom);
+      ctx.lineTo(c.x, candleBottom + c.wickBottom);
+      ctx.stroke();
+      
+      // Draw candle body with gradient
+      const gradient = ctx.createLinearGradient(c.x - halfWidth, candleTop, c.x + halfWidth, candleBottom);
+      if (c.isGreen) {
+        gradient.addColorStop(0, 'rgba(0, 200, 100, 0.35)');
+        gradient.addColorStop(1, 'rgba(0, 150, 80, 0.2)');
+      } else {
+        gradient.addColorStop(0, 'rgba(255, 80, 100, 0.3)');
+        gradient.addColorStop(1, 'rgba(200, 50, 70, 0.2)');
+      }
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(c.x - halfWidth, candleTop, c.width, c.bodyHeight);
+      
+      // Draw candle border
+      ctx.strokeStyle = c.isGreen ? '#00ff88' : '#ff4466';
       ctx.lineWidth = 1;
-      ctx.strokeRect(c.x - c.width/2, c.y - c.height, c.width, c.height);
+      ctx.strokeRect(c.x - halfWidth, candleTop, c.width, c.bodyHeight);
+      
+      // Add subtle glow
+      ctx.shadowBlur = 4;
+      ctx.shadowColor = c.isGreen ? 'rgba(0, 255, 136, 0.3)' : 'rgba(255, 68, 102, 0.3)';
+      ctx.strokeRect(c.x - halfWidth, candleTop, c.width, c.bodyHeight);
+      ctx.shadowBlur = 0;
     }
+    
     requestAnimationFrame(drawCandles);
   }
+  
   drawCandles();
   
-  // Loader percentage (0 to 100 over 5 seconds)
+  // ========== LOADER ANIMATIONS ==========
   let percent = 0;
   const percentInterval = setInterval(() => {
     if (percent < 100) {
@@ -913,12 +955,11 @@
     }
   }, 100);
   
-  // Active users counter animation (counts up to 809)
   let activeCount = 0;
   const targetActive = 809;
   const activeInterval = setInterval(() => {
     if (activeCount < targetActive) {
-      activeCount += Math.ceil(targetActive / 50); // Smooth increment
+      activeCount += Math.ceil(targetActive / 50);
       if (activeCount > targetActive) activeCount = targetActive;
       document.getElementById('activeUserCount').innerText = activeCount.toLocaleString();
     } else {
@@ -935,12 +976,15 @@
     setTimeout(() => { loader.style.display = 'none'; clearInterval(percentInterval); }, 600);
   }, 5000);
   
-  // Scroll top
+  // Scroll to top
   window.addEventListener('scroll', () => {
     const btn = document.getElementById('scrollTopBtn');
     btn.classList.toggle('visible', window.scrollY > 300);
   });
-  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 </script>
 
 </body>
