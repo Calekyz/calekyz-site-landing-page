@@ -42,7 +42,7 @@
       position: relative;
     }
 
-    /* ========== PAGE LOADER STYLES ========== */
+    /* ========== PAGE LOADER STYLES WITH FOREX CANDLES ========== */
     .page-loader {
       position: fixed;
       top: 0;
@@ -55,25 +55,56 @@
       justify-content: center;
       align-items: center;
       transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+      overflow: hidden;
+    }
+
+    /* Forex Candles Canvas Background */
+    #candleCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
     }
 
     .loader-content {
       text-align: center;
-      animation: pulse 1.2s ease-in-out infinite;
+      z-index: 2;
+      background: rgba(10, 15, 28, 0.7);
+      backdrop-filter: blur(15px);
+      padding: 40px 60px;
+      border-radius: 60px;
+      border: 1px solid rgba(43, 126, 58, 0.4);
+      box-shadow: 0 0 50px rgba(43, 126, 58, 0.2);
+      animation: glowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 20px rgba(43, 126, 58, 0.2); border-color: rgba(43, 126, 58, 0.3); }
+      50% { box-shadow: 0 0 50px rgba(43, 126, 58, 0.6); border-color: rgba(43, 126, 58, 0.8); }
+      100% { box-shadow: 0 0 20px rgba(43, 126, 58, 0.2); border-color: rgba(43, 126, 58, 0.3); }
     }
 
     .loader-logo {
-      width: 90px;
-      height: 90px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid #2b7e3a;
-      box-shadow: 0 0 30px rgba(43, 126, 58, 0.6);
+      box-shadow: 0 0 40px rgba(43, 126, 58, 0.8);
       margin-bottom: 20px;
+      animation: logoSpin 3s ease-in-out infinite;
+    }
+
+    @keyframes logoSpin {
+      0% { transform: scale(1); box-shadow: 0 0 20px rgba(43, 126, 58, 0.5); }
+      50% { transform: scale(1.08); box-shadow: 0 0 50px rgba(43, 126, 58, 0.9); }
+      100% { transform: scale(1); box-shadow: 0 0 20px rgba(43, 126, 58, 0.5); }
     }
 
     .loader-text {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
       background: linear-gradient(135deg, #FFFFFF, #94a3b8);
       -webkit-background-clip: text;
@@ -88,16 +119,41 @@
       background-clip: unset;
     }
 
+    /* Animated price ticker */
+    .price-ticker {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .ticker-up {
+      color: #00ff88;
+      animation: tickerFloat 1.5s ease-in-out infinite;
+    }
+
+    .ticker-down {
+      color: #ff4444;
+      animation: tickerFloat 1.8s ease-in-out infinite reverse;
+    }
+
+    @keyframes tickerFloat {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-5px); opacity: 1; }
+    }
+
     .loader-dots {
       display: flex;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       margin-top: 20px;
     }
 
     .loader-dots span {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       background: #2b7e3a;
       border-radius: 50%;
       animation: bounce 0.6s ease-in-out infinite;
@@ -107,24 +163,25 @@
     .loader-dots span:nth-child(2) { animation-delay: 0.15s; }
     .loader-dots span:nth-child(3) { animation-delay: 0.3s; }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.9; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-10px); }
     }
 
-    /* Hide loader when done */
+    /* Loading percentage text */
+    .loading-percent {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #86efac;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
     .page-loader.hide {
       opacity: 0;
       visibility: hidden;
     }
 
-    /* Main content initially hidden, then fades in */
     .main-content {
       opacity: 0;
       transition: opacity 0.8s ease-out;
@@ -218,7 +275,7 @@
       background-clip: unset;
     }
 
-    /* ========== SOCIAL CIRCULAR BUTTONS ========== */
+    /* Social Circular Buttons */
     .social-circle-section {
       margin: 30px 0 20px;
       text-align: center;
@@ -262,14 +319,8 @@
     .social-circle:nth-child(4) { animation-delay: 0.7s; }
 
     @keyframes fadeInScale {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     .social-circle:hover {
@@ -288,8 +339,7 @@
     .social-circle.whatsapp { color: #25D366; }
     .social-circle.whatsapp:hover { background: #25D366; color: white; box-shadow: 0 0 20px #25D366; }
 
-    /* ========================================================= */
-
+    /* Navbar buttons */
     .nav-buttons {
       display: flex;
       gap: 12px;
@@ -327,8 +377,6 @@
       transform: scale(1.05) translateY(-2px);
     }
 
-    .float-btn:active { transform: scale(0.98); }
-
     .btn-deriv {
       background: linear-gradient(135deg, #2b7e3a, #1a5a28);
       color: white;
@@ -339,50 +387,31 @@
     .btn-deriv::before {
       content: "⚡";
       margin-right: 4px;
-      font-size: 0.9rem;
     }
 
     .btn-forex {
       background: linear-gradient(135deg, #1e293b, #0f172a);
       color: #f0f4ff;
       border: 1px solid rgba(43, 126, 58, 0.5);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     .btn-forex::before {
       content: "💱";
       margin-right: 4px;
-      font-size: 0.9rem;
     }
 
     .btn-forex-portal {
       background: linear-gradient(135deg, #FFD700, #FF8C00);
       color: #1e1e2a;
       box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .btn-forex-portal::before {
       content: "🌐";
       margin-right: 4px;
-      font-size: 0.9rem;
     }
 
-    .btn-deriv:hover {
-      box-shadow: 0 8px 25px rgba(43, 126, 58, 0.6);
-      background: linear-gradient(135deg, #3a9a4a, #2b7e3a);
-    }
-
-    .btn-forex:hover {
-      box-shadow: 0 8px 25px rgba(43, 126, 58, 0.4);
-      border-color: #2b7e3a;
-    }
-
-    .btn-forex-portal:hover {
-      box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
-      background: linear-gradient(135deg, #FFE033, #FFA500);
-    }
-
+    /* API Buttons */
     .api-buttons-group {
       display: flex;
       gap: 16px;
@@ -401,15 +430,12 @@
       font-size: 0.9rem;
       text-decoration: none;
       transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
     }
 
     .btn-legacy {
       background: linear-gradient(135deg, #475569, #334155);
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .btn-legacy::before {
@@ -421,7 +447,6 @@
       background: linear-gradient(135deg, #2b7e3a, #1a5a28);
       color: white;
       box-shadow: 0 4px 15px rgba(43, 126, 58, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .btn-new::before {
@@ -429,18 +454,11 @@
       margin-right: 6px;
     }
 
-    .btn-legacy:hover, .btn-new:hover {
+    .api-btn:hover {
       transform: translateY(-2px);
     }
 
-    .btn-legacy:hover {
-      background: linear-gradient(135deg, #5a6a82, #475569);
-    }
-
-    .btn-new:hover {
-      background: linear-gradient(135deg, #3a9a4a, #2b7e3a);
-    }
-
+    /* General buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -536,12 +554,6 @@
       gap: 16px;
     }
 
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
     .card {
       padding: 32px;
       margin-bottom: 48px;
@@ -601,25 +613,12 @@
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.3rem; }
-      .section-title { font-size: 1.7rem; }
-      .button-group { justify-content: center; }
-      .hero-content { text-align: center; }
-      .navbar {
-        flex-direction: column;
-        text-align: center;
-      }
-      .float-btn {
-        padding: 6px 16px;
-        font-size: 0.8rem;
-      }
-      .social-circle {
-        width: 45px;
-        height: 45px;
-        font-size: 1.4rem;
-      }
-      .api-buttons-group {
-        justify-content: center;
-      }
+      .navbar { flex-direction: column; text-align: center; }
+      .float-btn { padding: 6px 16px; font-size: 0.8rem; }
+      .social-circle { width: 45px; height: 45px; font-size: 1.4rem; }
+      .loader-content { padding: 25px 35px; }
+      .loader-logo { width: 70px; height: 70px; }
+      .loader-text { font-size: 1.5rem; }
     }
 
     .scroll-top {
@@ -654,16 +653,26 @@
 </head>
 <body>
 
-<!-- PAGE LOADER -->
+<!-- PAGE LOADER WITH FOREX CANDLES BACKGROUND -->
 <div class="page-loader" id="pageLoader">
+  <canvas id="candleCanvas"></canvas>
   <div class="loader-content">
     <img src="https://i.postimg.cc/xCsZxjGF/Chat-GPT-Image-Apr-17-2026-10-54-53-AM.png" alt="Calekyz FX Logo" class="loader-logo">
     <div class="loader-text">Calekyz <span>FX</span></div>
+    
+    <!-- Animated Price Ticker -->
+    <div class="price-ticker">
+      <span class="ticker-up">↑ EUR/USD 1.08942</span>
+      <span class="ticker-down">↓ BINARY TRADING</span>
+      <span class="ticker-up">↑ WELCOME TO TRADING</span>
+    </div>
+    
     <div class="loader-dots">
       <span></span>
       <span></span>
       <span></span>
     </div>
+    <div class="loading-percent" id="loadingPercent">LOADING 0%</div>
   </div>
 </div>
 
@@ -696,7 +705,7 @@
       <a href="https://youtube.com/@calekyztradingsite?si=TJx4ngIskL43R4d7" target="_blank" class="social-circle youtube">
         <i class="fab fa-youtube"></i>
       </a>
-      <a href="https://chat.whatsapp.com/KCFkFMp2odbAvKEgnvWPSd" target="_blank" class="social-circle whatsapp">
+      <a href="https://whatsapp.com/channel/0029Vb6NOev89inkCXWzsp3D" target="_blank" class="social-circle whatsapp">
         <i class="fab fa-whatsapp"></i>
       </a>
     </div>
@@ -806,24 +815,95 @@
 <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
 <script>
-  // Page loader - hide after 1.5 seconds and show main content
-  window.addEventListener('DOMContentLoaded', function() {
+  // ========== FOREX CANDLES ANIMATION ==========
+  const canvas = document.getElementById('candleCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  
+  // Candle data
+  let candles = [];
+  const CANDLE_COUNT = 30;
+  
+  for (let i = 0; i < CANDLE_COUNT; i++) {
+    candles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      height: 40 + Math.random() * 80,
+      width: 8 + Math.random() * 10,
+      isGreen: Math.random() > 0.5,
+      speed: 0.5 + Math.random() * 1.5,
+      wick: 15 + Math.random() * 30
+    });
+  }
+  
+  function drawCandles() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let c of candles) {
+      // Update position (moving upward)
+      c.y -= c.speed;
+      if (c.y + c.height < 0) {
+        c.y = canvas.height;
+        c.x = Math.random() * canvas.width;
+        c.isGreen = Math.random() > 0.5;
+      }
+      
+      // Draw candle body
+      ctx.fillStyle = c.isGreen ? 'rgba(0, 255, 136, 0.25)' : 'rgba(255, 68, 68, 0.25)';
+      ctx.fillRect(c.x - c.width/2, c.y - c.height, c.width, c.height);
+      
+      // Draw wick (shadow)
+      ctx.beginPath();
+      ctx.strokeStyle = c.isGreen ? 'rgba(0, 255, 136, 0.5)' : 'rgba(255, 68, 68, 0.5)';
+      ctx.lineWidth = 2;
+      ctx.moveTo(c.x, c.y - c.height);
+      ctx.lineTo(c.x, c.y - c.height - c.wick);
+      ctx.stroke();
+      ctx.moveTo(c.x, c.y);
+      ctx.lineTo(c.x, c.y + c.wick);
+      ctx.stroke();
+      
+      // Draw border
+      ctx.strokeStyle = c.isGreen ? '#00ff88' : '#ff4444';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(c.x - c.width/2, c.y - c.height, c.width, c.height);
+    }
+    requestAnimationFrame(drawCandles);
+  }
+  
+  drawCandles();
+  
+  // ========== LOADER WITH PERCENTAGE ==========
+  let percent = 0;
+  const percentInterval = setInterval(() => {
+    if (percent < 100) {
+      percent += 2;
+      document.getElementById('loadingPercent').innerText = `LOADING ${percent}%`;
+    }
+  }, 100); // 100ms * 50 = 5 seconds total
+  
+  // Hide loader after 5 seconds
+  setTimeout(function() {
     const loader = document.getElementById('pageLoader');
     const mainContent = document.getElementById('mainContent');
     
-    // Show main content fade in after loader disappears
+    loader.classList.add('hide');
+    mainContent.classList.add('visible');
+    
     setTimeout(function() {
-      loader.classList.add('hide');
-      mainContent.classList.add('visible');
-      
-      // Remove loader from DOM after animation completes
-      setTimeout(function() {
-        loader.style.display = 'none';
-      }, 600);
-    }, 1500); // 1.5 seconds
-  });
-
-  // Scroll to top button visibility
+      loader.style.display = 'none';
+      clearInterval(percentInterval);
+    }, 600);
+  }, 5000); // 5 seconds
+  
+  // Scroll to top button
   window.addEventListener('scroll', function() {
     const btn = document.getElementById('scrollTopBtn');
     if (window.scrollY > 300) {
@@ -832,7 +912,7 @@
       btn.classList.remove('visible');
     }
   });
-
+  
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
