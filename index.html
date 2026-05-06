@@ -387,9 +387,9 @@
     .scroll-top.visible { opacity: 1; }
     .scroll-top:hover { transform: scale(1.05); }
 
-    /* Smart Floating Button */
+    /* Smart Floating Button - Updated for AI integration */
     .smart-chat-container { position: fixed; bottom: 100px; right: 25px; z-index: 9999; }
-    .smart-chat-btn { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #0064ff, #25D366); cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; position: relative; animation: smartPulse 2s ease-in-out infinite, colorShift 5s ease-in-out infinite; border: 2px solid rgba(255,255,255,0.2); }
+    .smart-chat-btn { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #0064ff, #25D366); cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; position: relative; animation: smartPulse 2s ease-in-out infinite, colorShift 5s ease-in-out infinite; border: 2px solid rgba(255,255,255,0.2); z-index: 9999; }
     .smart-chat-btn i { font-size: 28px; color: white; animation: iconPulse 1.5s ease-in-out infinite; }
     @keyframes smartPulse { 0% { box-shadow: 0 0 0 0 rgba(0, 100, 255, 0.4); } 50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0.2); } 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
     @keyframes colorShift { 0% { background: linear-gradient(135deg, #0064ff, #25D366); } 33% { background: linear-gradient(135deg, #ffd700, #0064ff); } 66% { background: linear-gradient(135deg, #25D366, #ffd700); } 100% { background: linear-gradient(135deg, #0064ff, #25D366); } }
@@ -511,12 +511,12 @@
     </div>
   </div>
 
-  <!-- SECTION 1: COPY TRADING / ACCOUNT MANAGEMENT (After Deriv API) -->
+  <!-- SECTION 1: COPY TRADING / ACCOUNT MANAGEMENT -->
   <div id="copy-trading" class="service-card">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 32px;">
       <div style="flex: 1;">
         <div style="font-size: 0.7rem; color: #ffd700; letter-spacing: 1px; margin-bottom: 12px;">✦ COPY TRADING ✦</div>
-        <h2 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 16px;">Copy my Trades/Management <span style="color:#ffd700;">40% Profit Split</span></h2>
+        <h2 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 16px;">Account Management <span style="color:#ffd700;">40% Profit Split</span></h2>
         <p style="color: #cbd5e1; line-height: 1.6;">Let me trade for you. I manage your forex account professionally using proven strategies.</p>
         
         <div class="profit-split">💰 40% / 60% Split</div>
@@ -540,7 +540,7 @@
     </div>
   </div>
 
-  <!-- SECTION 2: CUSTOM BOT DEVELOPMENT (After Copy Trading) -->
+  <!-- SECTION 2: CUSTOM BOT DEVELOPMENT -->
   <div id="custom-bot" class="service-card">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 32px;">
       <div style="flex: 1;">
@@ -658,16 +658,16 @@
   </div>
 </div>
 
-<!-- SMART FLOATING CHAT BUTTON -->
+<!-- SMART FLOATING CHAT BUTTON - OPEN AI BOT ON CLICK -->
 <div class="smart-chat-container">
   <div class="smart-chat-btn" id="smartChatBtn">
     <i class="fas fa-comment-dots"></i>
   </div>
   <div class="chat-menu" id="chatMenu">
-    <a href="#" class="chat-option ai-option" id="aiChatOption">
+    <div class="chat-option ai-option" id="aiChatOption">
       <i class="fas fa-robot"></i>
       <span>🤖 AI Assistant <small>Ask anything about trading</small></span>
-    </a>
+    </div>
     <a href="https://wa.me/254799045699?text=Hello%20Calekyz%2C%20I%20need%20help%20with%20your%20services" target="_blank" class="chat-option whatsapp-option">
       <i class="fab fa-whatsapp"></i>
       <span>📱 Message on WhatsApp <small>Direct reply from me</small></span>
@@ -676,6 +676,11 @@
 </div>
 
 <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<!-- CHATBASE AI EMBED CODE -->
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yvOGp-C94Skb34vFutYzd";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
 
 <script>
   // ========== COPY TRADING MODAL ==========
@@ -747,27 +752,22 @@
     }
   });
   
-  const aiOption = document.getElementById('aiChatOption');
-  aiOption.addEventListener('click', (e) => {
+  // ========== AI CHAT OPEN FUNCTION ==========
+  // This opens the Chatbase AI chatbot when clicking "AI Assistant"
+  const aiOptionDiv = document.getElementById('aiChatOption');
+  aiOptionDiv.addEventListener('click', (e) => {
     e.preventDefault();
-    const userQuestion = prompt("🤖 AI Assistant\n\nAsk me anything about Calekyz FX trading, APIs, copy trading, or custom bots:");
-    if (userQuestion) {
-      let response = "Thanks for your question! ";
-      const q = userQuestion.toLowerCase();
-      if (q.includes("copy") || q.includes("account management")) {
-        response += "Our copy trading service offers 40% profit split. Fill out the 'Request Service' form on this page to get started on WhatsApp.";
-      } else if (q.includes("bot") && q.includes("custom")) {
-        response += "You can request custom trading bots using the 'Submit Bot Idea' section above. Describe your strategy and I'll email you.";
-      } else if (q.includes("deriv") || q.includes("api")) {
-        response += "Our Deriv API provides low-latency binary options trading. Click the WhatsApp option to get your API keys.";
-      } else if (q.includes("forex bot")) {
-        response += "The Forex Bot costs $130 USD one-time. It's MT4/MT5 compatible with lifetime updates. Contact via WhatsApp to purchase.";
-      } else {
-        response += "Please message me on WhatsApp (+254 799 045 699) and I'll personally answer within a few hours.";
-      }
-      alert("🤖 AI Assistant:\n\n" + response);
-    }
+    // Close the menu first
     chatMenu.classList.remove('show');
+    // Check if Chatbase is loaded and open the chat widget
+    if (typeof window.chatbase !== 'undefined') {
+      // Open the Chatbase chat widget
+      window.chatbase("open");
+    } else {
+      // Fallback: wait for Chatbase to load then open
+      console.log("Chatbase loading, please wait...");
+      alert("AI Assistant is loading. Please click again in a moment.");
+    }
   });
   
   // ========== VISITOR TRACKING ==========
