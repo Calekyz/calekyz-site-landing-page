@@ -261,7 +261,7 @@
     .api-powered-text strong { color: #ffd700; }
 
     /* Cards */
-    .card, .forex-area, .trust-badge, .video-wrapper, .service-card {
+    .card, .forex-area, .trust-badge, .video-wrapper, .service-card, .class-card {
       background: rgba(15, 23, 42, 0.7);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(0, 100, 255, 0.15);
@@ -273,6 +273,116 @@
     
     .service-card { padding: 32px; margin-bottom: 40px; transition: all 0.2s ease; }
     .service-card:hover { border-color: rgba(255, 215, 0, 0.4); transform: translateY(-4px); }
+
+    /* Classes Section Styles */
+    .classes-section {
+      margin: 48px 0;
+      text-align: center;
+    }
+    .section-badge {
+      font-size: 0.7rem;
+      color: #ffd700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .class-card {
+      max-width: 650px;
+      margin: 32px auto 0;
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+    }
+    .class-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 215, 0, 0.5);
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.3);
+    }
+    .class-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .class-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FFFFFF, #cbd5e1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .class-schedule {
+      font-size: 1rem;
+      color: #60a5fa;
+      margin: 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .class-teacher {
+      font-size: 0.9rem;
+      background: rgba(255, 215, 0, 0.12);
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 40px;
+      margin: 12px 0;
+      color: #fcd34d;
+    }
+    .prices-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      margin: 24px 0 16px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .price-item {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+    }
+    .price-amount {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0064ff, #ffd700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .price-kenya {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .price-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #5a6a82;
+      margin-bottom: 8px;
+    }
+    .payment-methods {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin: 20px 0 24px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    .payment-methods i {
+      font-size: 1.1rem;
+      margin-right: 6px;
+      color: #ffd700;
+    }
+    .btn-class {
+      width: 80%;
+      justify-content: center;
+      padding: 14px;
+      font-size: 1rem;
+    }
 
     .risk-warning {
       background: rgba(255, 68, 102, 0.1);
@@ -387,7 +497,7 @@
     .scroll-top.visible { opacity: 1; }
     .scroll-top:hover { transform: scale(1.05); }
 
-    /* Smart Floating Button - Updated for AI integration */
+    /* Smart Floating Button */
     .smart-chat-container { position: fixed; bottom: 100px; right: 25px; z-index: 9999; }
     .smart-chat-btn { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #0064ff, #25D366); cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; position: relative; animation: smartPulse 2s ease-in-out infinite, colorShift 5s ease-in-out infinite; border: 2px solid rgba(255,255,255,0.2); z-index: 9999; }
     .smart-chat-btn i { font-size: 28px; color: white; animation: iconPulse 1.5s ease-in-out infinite; }
@@ -423,6 +533,9 @@
       .smart-chat-btn { width: 55px; height: 55px; }
       .smart-chat-btn i { font-size: 24px; }
       .chat-menu { width: 260px; right: 0; bottom: 70px; }
+      .class-card { margin: 24px 16px; }
+      .btn-class { width: 100%; }
+      .prices-container { flex-direction: column; gap: 20px; }
     }
   </style>
 </head>
@@ -583,6 +696,57 @@
     <p style="margin-top: 20px; font-size: 0.7rem; color: #5a6a82;">Delivery within 12h • Setup included</p>
   </div>
 
+  <!-- ========== SINGLE CLASSES SECTION (ONE TAB WITH BOTH PRICES) ========== -->
+  <div class="classes-section" id="live-classes">
+    <div class="section-badge">🎓 LIVE TRADING EDUCATION</div>
+    <h2 style="font-size: 1.9rem; font-weight: 700; margin-bottom: 16px;">Learn from <span style="background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent;">Caleb Orenge</span></h2>
+    <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto;">Daily live classes • Real market analysis • Q&A included</p>
+
+    <!-- SINGLE CARD containing BOTH price options -->
+    <div class="class-card">
+      <div class="class-icon">📊🎓</div>
+      <div class="class-title">Forex & Deriv Live Classes</div>
+      
+      <!-- Schedule -->
+      <div class="class-schedule">
+        <i class="far fa-clock"></i> 9:00 PM – 11:00 PM (Daily)
+      </div>
+      <div class="class-teacher">
+        👨‍🏫 Teacher: Caleb Orenge (Calekyztrading)
+      </div>
+      
+      <!-- TWO PRICES INSIDE ONE CARD -->
+      <div class="prices-container">
+        <div class="price-item">
+          <div class="price-label">🔥 BUNDLE (Both)</div>
+          <div class="price-amount">$60 <span style="font-size: 1rem;">USD</span></div>
+          <div class="price-kenya">🇰🇪 8,000 KSH</div>
+          <div style="font-size: 0.7rem; color: #60a5fa; margin-top: 6px;">Forex + Deriv Full Access</div>
+        </div>
+        <div class="price-item">
+          <div class="price-label">📈 DERIV Only</div>
+          <div class="price-amount">$30 <span style="font-size: 1rem;">USD</span></div>
+          <div class="price-kenya">🇰🇪 4,000 KSH</div>
+          <div style="font-size: 0.7rem; color: #60a5fa; margin-top: 6px;">Binary & Price Action Focus</div>
+        </div>
+      </div>
+      
+      <!-- Payment Methods -->
+      <div class="payment-methods">
+        <span><i class="fas fa-mobile-alt"></i> M-Pesa</span>
+        <span><i class="fab fa-bitcoin"></i> Crypto (BTC/USDT)</span>
+      </div>
+      
+      <!-- Single CTA Button -->
+      <button class="btn btn-gold btn-class" id="openClassModalBtn">
+        📚 Enroll Now — Choose Package
+      </button>
+      <p style="font-size: 0.65rem; color: #5a6a82; margin-top: 16px;">
+        *Classes run daily • Recordings available • WhatsApp support included
+      </p>
+    </div>
+  </div>
+
   <!-- TRUST BADGES -->
   <div class="trust-badge">
     <div class="trust-item"><div class="trust-icon">🔒</div><h3>Transparent Execution</h3><p>Real quotes, no hidden spreads</p></div>
@@ -658,7 +822,38 @@
   </div>
 </div>
 
-<!-- SMART FLOATING CHAT BUTTON - OPEN AI BOT ON CLICK -->
+<!-- MODAL FOR CLASS ENROLLMENT (with package selection) -->
+<div id="classModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeClassModal()">&times;</span>
+    <h3>📚 Enroll in Live Classes</h3>
+    <p style="font-size: 0.8rem; margin-bottom: 16px;">Select your package and fill in your details.</p>
+    <form id="classEnrollmentForm">
+      <label>Select Package *</label>
+      <select id="classPackage" required>
+        <option value="Forex + Deriv Bundle - $60 USD (8,000 KSH)">🔥 BUNDLE: Forex + Deriv — $60 (8,000 KSH)</option>
+        <option value="Deriv Only - $30 USD (4,000 KSH)">📈 DERIV Only — $30 (4,000 KSH)</option>
+      </select>
+      <label>Full Name *</label>
+      <input type="text" id="className" required>
+      <label>Phone Number (WhatsApp) *</label>
+      <input type="tel" id="classPhone" required>
+      <label>Payment Method</label>
+      <select id="classPaymentMethod">
+        <option value="M-Pesa">🇰🇪 M-Pesa</option>
+        <option value="Crypto">₿ Crypto (BTC / USDT)</option>
+      </select>
+      <label>Transaction Reference (Optional)</label>
+      <input type="text" id="classTxRef" placeholder="M-Pesa code or TX hash">
+      <div class="risk-warning" style="margin: 12px 0;">
+        📌 After submitting, you'll get class access details & payment instructions on WhatsApp.
+      </div>
+      <button type="submit" class="btn btn-gold" style="width:100%;">✅ SEND ENROLLMENT REQUEST</button>
+    </form>
+  </div>
+</div>
+
+<!-- SMART FLOATING CHAT BUTTON -->
 <div class="smart-chat-container">
   <div class="smart-chat-btn" id="smartChatBtn">
     <i class="fas fa-comment-dots"></i>
@@ -683,6 +878,30 @@
 </script>
 
 <script>
+  // ========== CLASS MODAL LOGIC ==========
+  const openClassBtn = document.getElementById('openClassModalBtn');
+  const classModal = document.getElementById('classModal');
+  
+  openClassBtn.onclick = () => { classModal.classList.add('show'); };
+  
+  function closeClassModal() { classModal.classList.remove('show'); }
+  
+  document.getElementById('classEnrollmentForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const packageSelected = document.getElementById('classPackage').value;
+    const name = document.getElementById('className').value;
+    const phone = document.getElementById('classPhone').value;
+    const paymentMethod = document.getElementById('classPaymentMethod').value;
+    const txRef = document.getElementById('classTxRef').value;
+
+    const whatsappMsg = `*NEW CLASS ENROLLMENT*%0A%0A*Package:* ${packageSelected}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Payment Method:* ${paymentMethod}%0A*Transaction Ref:* ${txRef || 'None'}%0A%0A_Please send class access details and payment instructions._`;
+
+    window.open(`https://wa.me/254799045699?text=${whatsappMsg}`, '_blank');
+    alert('✓ Enrollment request sent! You will be redirected to WhatsApp for payment & access.');
+    closeClassModal();
+    document.getElementById('classEnrollmentForm').reset();
+  });
+
   // ========== COPY TRADING MODAL ==========
   const copyBtn = document.getElementById('copyTradingBtn');
   const copyModal = document.getElementById('copyTradingModal');
@@ -753,19 +972,13 @@
   });
   
   // ========== AI CHAT OPEN FUNCTION ==========
-  // This opens the Chatbase AI chatbot when clicking "AI Assistant"
   const aiOptionDiv = document.getElementById('aiChatOption');
   aiOptionDiv.addEventListener('click', (e) => {
     e.preventDefault();
-    // Close the menu first
     chatMenu.classList.remove('show');
-    // Check if Chatbase is loaded and open the chat widget
     if (typeof window.chatbase !== 'undefined') {
-      // Open the Chatbase chat widget
       window.chatbase("open");
     } else {
-      // Fallback: wait for Chatbase to load then open
-      console.log("Chatbase loading, please wait...");
       alert("AI Assistant is loading. Please click again in a moment.");
     }
   });
@@ -930,6 +1143,7 @@
   window.onclick = function(event) {
     if (event.target === copyModal) closeCopyModal();
     if (event.target === botModal) closeBotModal();
+    if (event.target === classModal) closeClassModal();
   }
 </script>
 
