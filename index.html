@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Calekyz FX | Institutional Trading Infrastructure</title>
   
-  <!-- Google Analytics (ADDED with your ID G-L19Z3VL7SB) -->
+  <!-- Google tag (gtag.js) - UPDATED WITH YOUR EXACT CODE -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L19Z3VL7SB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -242,7 +242,7 @@
     .float-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 22px; border-radius: 40px; font-weight: 600; font-size: 0.8rem; text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: none; background: rgba(0, 100, 255, 0.15); color: #60a5fa; border: 1px solid rgba(0, 100, 255, 0.4); }
     .float-btn:hover { background: #0064ff; color: white; transform: translateY(-2px); }
     
-    /* ANIMATED DERIV API BUTTON - Fixed with full animation */
+    /* ANIMATED DERIV API BUTTON */
     .btn-deriv {
       background: linear-gradient(135deg, #0064ff, #00a3ff, #0064ff);
       background-size: 200% 200%;
@@ -710,25 +710,21 @@
 
     /* Smart Chat Button */
     .smart-chat-container { position: fixed; bottom: 100px; right: 25px; z-index: 9999; }
-    .smart-chat-btn { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #0064ff, #25D366); cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; position: relative; animation: smartPulse 2s ease-in-out infinite, colorShift 5s ease-in-out infinite; border: 2px solid rgba(255,255,255,0.2); z-index: 9999; }
-    .smart-chat-btn i { font-size: 28px; color: white; animation: iconPulse 1.5s ease-in-out infinite; }
-    @keyframes smartPulse { 0% { box-shadow: 0 0 0 0 rgba(0, 100, 255, 0.4); } 50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0.2); } 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
-    @keyframes colorShift { 0% { background: linear-gradient(135deg, #0064ff, #25D366); } 33% { background: linear-gradient(135deg, #ffd700, #0064ff); } 66% { background: linear-gradient(135deg, #25D366, #ffd700); } 100% { background: linear-gradient(135deg, #0064ff, #25D366); } }
-    @keyframes iconPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-    .smart-chat-btn:hover { transform: scale(1.1); animation: none; }
+    .smart-chat-btn { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #0064ff, #25D366); cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; position: relative; border: 2px solid rgba(255,255,255,0.2); z-index: 9999; }
+    .smart-chat-btn i { font-size: 28px; color: white; }
+    .smart-chat-btn:hover { transform: scale(1.1); }
     .chat-menu { position: absolute; bottom: 80px; right: 0; width: 280px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(0, 100, 255, 0.3); box-shadow: 0 10px 40px rgba(0,0,0,0.4); padding: 16px; display: none; flex-direction: column; gap: 12px; animation: slideUp 0.3s ease; }
     .chat-menu.show { display: flex; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .chat-option { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 14px; text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: 1px solid rgba(255,255,255,0.05); }
     .chat-option i { font-size: 22px; width: 32px; }
     .chat-option span { font-size: 0.9rem; font-weight: 500; }
-    .chat-option small { font-size: 0.7rem; opacity: 0.7; display: block; }
     .ai-option { background: linear-gradient(135deg, rgba(0,100,255,0.2), rgba(255,215,0,0.1)); border-color: rgba(0,100,255,0.3); color: #60a5fa; }
     .ai-option:hover { background: linear-gradient(135deg, rgba(0,100,255,0.4), rgba(255,215,0,0.2)); transform: translateX(-5px); }
     .whatsapp-option { background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.3); color: #25D366; }
     .whatsapp-option:hover { background: rgba(37, 211, 102, 0.3); transform: translateX(-5px); }
 
-    /* FLOATING SOCIAL BUTTON - RESTORED AND WORKING */
+    /* FLOATING SOCIAL BUTTON */
     .floating-social-container {
       position: fixed;
       left: 20px;
@@ -1123,7 +1119,7 @@
 <div id="customBotModal" class="modal"><div class="modal-content"><span class="modal-close" onclick="closeBotModal()">&times;</span><h3>🤖 Request Custom Trading Bot</h3><p style="font-size: 0.8rem; margin-bottom: 16px;">Describe your bot idea.</p><form id="customBotForm"><label>Your Name *</label><input type="text" id="botName" required><label>Your Email *</label><input type="email" id="botEmail" required><label>Bot Description *</label><textarea id="botDescription" rows="4" required></textarea><label>Budget (Optional)</label><input type="text" id="botBudget"><button type="submit" class="btn btn-primary" style="width:100%; margin-top:12px;">SUBMIT IDEA → EMAIL</button></form></div></div>
 <div id="classModal" class="modal"><div class="modal-content"><span class="modal-close" onclick="closeClassModal()">&times;</span><h3>📚 Enroll in Live Classes</h3><form id="classEnrollmentForm"><label>Select Package *</label><select id="classPackage" required><option value="Forex + Deriv Bundle - $60 USD (8,000 KSH)">🔥 BUNDLE: Forex + Deriv — $60 (8,000 KSH)</option><option value="Deriv Only - $30 USD (4,000 KSH)">📈 DERIV Only — $30 (4,000 KSH)</option></select><label>Full Name *</label><input type="text" id="className" required><label>Phone Number (WhatsApp) *</label><input type="tel" id="classPhone" required><label>Payment Method</label><select id="classPaymentMethod"><option value="M-Pesa">🇰🇪 M-Pesa</option><option value="Crypto">₿ Crypto (BTC / USDT)</option></select><label>Transaction Reference (Optional)</label><input type="text" id="classTxRef"><button type="submit" class="btn btn-gold" style="width:100%;">✅ SEND ENROLLMENT REQUEST</button></form></div></div>
 
-<!-- FLOATING SOCIAL BUTTON (RESTORED) -->
+<!-- FLOATING SOCIAL BUTTON -->
 <div id="floatingSocial" class="floating-social-container">
   <div class="social-float-btn" id="socialFloatBtn"><i class="fas fa-share-alt"></i></div>
   <div class="social-float-menu" id="socialFloatMenu">
@@ -1137,7 +1133,7 @@
 </div>
 
 <!-- SMART CHAT BUTTON -->
-<div class="smart-chat-container"><div class="smart-chat-btn" id="smartChatBtn"><i class="fas fa-comment-dots"></i></div><div class="chat-menu" id="chatMenu"><div class="chat-option ai-option" id="aiChatOption"><i class="fas fa-robot"></i><span>🤖 AI Assistant</span><small>Chatbase AI</small></div><a href="https://wa.me/254799045699?text=Hello%20Calekyz%2C%20I%20need%20help" target="_blank" class="chat-option whatsapp-option"><i class="fab fa-whatsapp"></i><span>📱 WhatsApp Support</span></a></div></div>
+<div class="smart-chat-container"><div class="smart-chat-btn" id="smartChatBtn"><i class="fas fa-comment-dots"></i></div><div class="chat-menu" id="chatMenu"><div class="chat-option ai-option" id="aiChatOption"><i class="fas fa-robot"></i><span>🤖 AI Assistant</span></div><a href="https://wa.me/254799045699?text=Hello%20Calekyz%2C%20I%20need%20help" target="_blank" class="chat-option whatsapp-option"><i class="fab fa-whatsapp"></i><span>📱 WhatsApp Support</span></a></div></div>
 
 <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
@@ -1230,7 +1226,7 @@
   window.scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   window.onclick = (event) => { if (event.target.classList && event.target.classList.contains('modal')) event.target.classList.remove('show'); };
 
-  // FLOATING SOCIAL BUTTON - DRAGGABLE (works on both laptop and phone)
+  // FLOATING SOCIAL BUTTON - DRAGGABLE
   const socialContainer = document.getElementById('floatingSocial');
   const socialFloatBtn = document.getElementById('socialFloatBtn');
   const socialFloatMenu = document.getElementById('socialFloatMenu');
@@ -1244,24 +1240,13 @@
   socialFloatBtn.addEventListener('touchstart', onSocialDragStart, { passive: false }); window.addEventListener('touchmove', onSocialDragMove, { passive: false }); window.addEventListener('touchend', onSocialDragEnd);
   socialFloatBtn.addEventListener('click', (e) => { if (isDraggingSocial) return; e.stopPropagation(); socialFloatMenu.classList.toggle('show'); });
   document.addEventListener('click', (e) => { if (!socialContainer.contains(e.target)) socialFloatMenu.classList.remove('show'); });
-  const savedLeft = localStorage.getItem('socialFloatLeft'), savedTop = localStorage.getItem('socialFloatTop');
-  if (savedLeft && savedTop) { socialContainer.style.left = savedLeft + 'px'; socialContainer.style.top = savedTop + 'px'; socialContainer.style.transform = 'none'; }
+  const savedLeftPos = localStorage.getItem('socialFloatLeft'), savedTopPos = localStorage.getItem('socialFloatTop');
+  if (savedLeftPos && savedTopPos) { socialContainer.style.left = savedLeftPos + 'px'; socialContainer.style.top = savedTopPos + 'px'; socialContainer.style.transform = 'none'; }
 </script>
 
-<!-- Chatbase AI Script - WORKING -->
+<!-- CHATBASE EMBED CODE - YOUR EXACT PROVIDED CODE -->
 <script>
-  (function(){
-    if(!window.chatbase || window.chatbase("getState")!=="initialized") {
-      window.chatbase = (...args)=>(window.chatbase.q=window.chatbase.q||[]).push(args);
-      window.chatbase.q = window.chatbase.q||[];
-      const script = document.createElement('script');
-      script.src = 'https://www.chatbase.co/embed.min.js';
-      script.id = 'UzJY4tKGlE5QkFQn8p7bR';
-      script.setAttribute('data-domain', 'www.chatbase.co');
-      script.defer = true;
-      document.body.appendChild(script);
-    }
-  })();
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yvOGp-C94Skb34vFutYzd";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 </body>
 </html>
