@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Calekyz FX | Institutional Trading Infrastructure</title>
   
+  <!-- Google Analytics (ADDED with your ID G-L19Z3VL7SB) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L19Z3VL7SB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L19Z3VL7SB');
+  </script>
+  
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
@@ -18,13 +27,37 @@
       box-sizing: border-box;
     }
 
+    /* LIGHT/DARK MODE VARIABLES */
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-overlay: rgba(0, 0, 0, 0.75);
+      --card-bg: rgba(15, 23, 42, 0.7);
+      --text-primary: #eef2ff;
+      --text-secondary: #cbd5e1;
+      --border-color: rgba(0, 100, 255, 0.2);
+      --navbar-bg: rgba(15, 23, 42, 0.7);
+      --footer-border: rgba(255, 255, 255, 0.05);
+    }
+
+    body.light-mode {
+      --bg-primary: #f0f4f8;
+      --bg-overlay: rgba(255, 255, 255, 0.85);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text-primary: #1e293b;
+      --text-secondary: #334155;
+      --border-color: rgba(0, 100, 255, 0.3);
+      --navbar-bg: rgba(255, 255, 255, 0.85);
+      --footer-border: rgba(0, 0, 0, 0.1);
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      color: #eef2ff;
+      color: var(--text-primary);
       line-height: 1.5;
       scroll-behavior: smooth;
       position: relative;
-      background: #0a0e17;
+      background: var(--bg-primary);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     body::before {
@@ -40,6 +73,11 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       z-index: -2;
+      transition: opacity 0.3s ease;
+    }
+
+    body.light-mode::before {
+      opacity: 0.3;
     }
 
     body::after {
@@ -49,8 +87,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.75);
+      background: var(--bg-overlay);
       z-index: -1;
+      transition: background-color 0.3s ease;
     }
 
     /* Loader */
@@ -182,15 +221,16 @@
     .navbar {
       padding: 14px 28px;
       margin-top: 24px;
-      background: rgba(15, 23, 42, 0.7);
+      background: var(--navbar-bg);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(0, 100, 255, 0.2);
+      border: 1px solid var(--border-color);
       border-radius: 80px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 20px;
+      transition: background 0.3s ease;
     }
 
     .logo-container { display: flex; align-items: center; gap: 12px; }
@@ -198,16 +238,59 @@
     .logo-text { font-size: 1.4rem; font-weight: 700; background: linear-gradient(135deg, #FFFFFF, #cbd5e1); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .logo-text span { background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-    .nav-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nav-buttons { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
     .float-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 22px; border-radius: 40px; font-weight: 600; font-size: 0.8rem; text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: none; background: rgba(0, 100, 255, 0.15); color: #60a5fa; border: 1px solid rgba(0, 100, 255, 0.4); }
     .float-btn:hover { background: #0064ff; color: white; transform: translateY(-2px); }
-    .btn-deriv { background: rgba(0, 100, 255, 0.15); color: #60a5fa; border: 1px solid rgba(0, 100, 255, 0.4); }
-    .btn-deriv:hover { background: #0064ff; color: white; transform: translateY(-2px); }
+    
+    /* ANIMATED DERIV API BUTTON - Fixed with full animation */
+    .btn-deriv {
+      background: linear-gradient(135deg, #0064ff, #00a3ff, #0064ff);
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease infinite, floatUpDown 1.5s ease-in-out infinite;
+      color: white;
+      border: none;
+      box-shadow: 0 0 15px rgba(0,100,255,0.5);
+    }
+    .btn-deriv:hover {
+      animation: gradientShift 1.5s ease infinite, floatUpDown 0.8s ease-in-out infinite;
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0,100,255,0.8);
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes floatUpDown {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0px); }
+    }
+    
     .btn-forex { background: rgba(255, 215, 0, 0.1); color: #fcd34d; border: 1px solid rgba(255, 215, 0, 0.3); }
     .btn-forex:hover { background: #ffd700; color: #0a0f1c; transform: translateY(-2px); }
-    /* New header affiliate button */
     .btn-affiliate-header { background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,100,255,0.15)); color: #ffd700; border: 1px solid rgba(255,215,0,0.5); }
     .btn-affiliate-header:hover { background: linear-gradient(135deg, #ffd700, #0064ff); color: #0a0f1c; transform: translateY(-2px); }
+
+    /* Dark/Light Mode Toggle Button */
+    .theme-toggle {
+      background: rgba(0, 100, 255, 0.2);
+      border: 1px solid rgba(0, 100, 255, 0.4);
+      border-radius: 40px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .theme-toggle:hover {
+      background: #0064ff;
+      color: white;
+      transform: scale(1.05);
+    }
 
     /* Social Circles */
     .social-circle-section { margin: 32px 0 24px; text-align: center; }
@@ -218,6 +301,9 @@
       display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.3rem;
       transition: all 0.2s ease; border: 1px solid rgba(0, 100, 255, 0.2);
       opacity: 0; transform: scale(0.8); animation: fadeInScale 0.4s ease-out forwards;
+    }
+    body.light-mode .social-circle {
+      background: rgba(255, 255, 255, 0.8);
     }
     .social-circle:nth-child(1) { animation-delay: 0.05s; }
     .social-circle:nth-child(2) { animation-delay: 0.15s; }
@@ -241,17 +327,18 @@
     .hero-badge { background: rgba(0, 100, 255, 0.12); color: #60a5fa; padding: 4px 14px; border-radius: 40px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; display: inline-block; margin-bottom: 24px; border: 1px solid rgba(0, 100, 255, 0.3); }
     .hero h1 { font-size: 3.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 24px; }
     .hero h1 span { background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero p { font-size: 1rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 32px; max-width: 500px; }
+    .hero p { font-size: 1rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px; max-width: 500px; }
     .api-powered-badge { display: inline-flex; align-items: center; gap: 12px; background: rgba(0, 100, 255, 0.08); border: 1px solid rgba(0, 100, 255, 0.2); border-radius: 60px; padding: 6px 18px; margin-top: 8px; }
     .api-powered-text { font-size: 0.7rem; font-weight: 500; color: #60a5fa; font-family: 'JetBrains Mono', monospace; }
     .api-powered-text strong { color: #ffd700; }
 
     /* Cards */
     .card, .forex-area, .trust-badge, .video-wrapper, .service-card, .class-card {
-      background: rgba(15, 23, 42, 0.7);
+      background: var(--card-bg);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(0, 100, 255, 0.15);
+      border: 1px solid var(--border-color);
       border-radius: 24px;
+      transition: background 0.3s ease;
     }
 
     .card { padding: 40px; margin-bottom: 48px; transition: all 0.2s ease; }
@@ -433,7 +520,7 @@
 
     .button-group { display: flex; flex-wrap: wrap; gap: 14px; }
 
-    /* Payment Details Area inside Forex Bot (kept for reference, but moved the button to header) */
+    /* Payment Details Area inside Forex Bot */
     .payment-details-area {
       margin-top: 28px;
       padding-top: 20px;
@@ -616,12 +703,12 @@
       color: #ff4466;
     }
 
-    footer { text-align: center; padding: 48px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 48px; font-size: 0.75rem; color: #94a3b8; }
+    footer { text-align: center; padding: 48px 0 40px; border-top: 1px solid var(--footer-border); margin-top: 48px; font-size: 0.75rem; color: var(--text-secondary); transition: border-color 0.3s ease; }
     .scroll-top { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #0064ff, #ffd700); color: #0a0f1c; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: all 0.2s; z-index: 100; border: none; }
     .scroll-top.visible { opacity: 1; }
     .scroll-top:hover { transform: scale(1.05); }
 
-    /* Smart Floating Button */
+    /* Smart Chat Button */
     .smart-chat-container { position: fixed; bottom: 100px; right: 25px; z-index: 9999; }
     .smart-chat-btn { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #0064ff, #25D366); cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; position: relative; animation: smartPulse 2s ease-in-out infinite, colorShift 5s ease-in-out infinite; border: 2px solid rgba(255,255,255,0.2); z-index: 9999; }
     .smart-chat-btn i { font-size: 28px; color: white; animation: iconPulse 1.5s ease-in-out infinite; }
@@ -640,6 +727,84 @@
     .ai-option:hover { background: linear-gradient(135deg, rgba(0,100,255,0.4), rgba(255,215,0,0.2)); transform: translateX(-5px); }
     .whatsapp-option { background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.3); color: #25D366; }
     .whatsapp-option:hover { background: rgba(37, 211, 102, 0.3); transform: translateX(-5px); }
+
+    /* FLOATING SOCIAL BUTTON - RESTORED AND WORKING */
+    .floating-social-container {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10001;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+    }
+    .social-float-btn {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #ffd700;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,215,0,0.6);
+      transition: 0.1s linear;
+      cursor: pointer;
+    }
+    .social-float-menu {
+      position: absolute;
+      left: 68px;
+      top: 0;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(20px);
+      border-radius: 28px;
+      padding: 12px 16px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 210px;
+      border: 1px solid rgba(255,215,0,0.3);
+      z-index: 10002;
+    }
+    .social-float-menu.show {
+      display: flex;
+    }
+    .social-float-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 16px;
+      border-radius: 40px;
+      text-decoration: none;
+      color: #eef2ff;
+      background: rgba(30, 41, 59, 0.7);
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+    .social-float-item:hover {
+      background: #0064ff;
+      transform: translateX(6px);
+      color: white;
+    }
+    body.light-mode .social-float-menu {
+      background: rgba(255, 255, 255, 0.96);
+    }
+    body.light-mode .social-float-item {
+      background: rgba(0, 0, 0, 0.05);
+      color: #1e293b;
+    }
+    body.light-mode .social-float-item:hover {
+      background: #0064ff;
+      color: white;
+    }
+    @media (max-width: 680px) {
+      .floating-social-container { left: 12px; }
+      .social-float-btn { width: 48px; height: 48px; font-size: 24px; }
+      .social-float-menu { left: 58px; min-width: 185px; }
+    }
 
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
@@ -660,6 +825,36 @@
       .class-card { margin: 24px 16px; }
       .btn-class { width: 100%; }
       .prices-container { flex-direction: column; gap: 20px; }
+    }
+
+    /* Additional light mode overrides */
+    body.light-mode .hero p,
+    body.light-mode .service-card p,
+    body.light-mode .card p {
+      color: #334155;
+    }
+    body.light-mode .api-powered-text,
+    body.light-mode .api-powered-text strong {
+      color: #0064ff;
+    }
+    body.light-mode footer {
+      color: #475569;
+    }
+    body.light-mode .risk-warning {
+      background: rgba(255, 68, 102, 0.15);
+      color: #dc2626;
+    }
+    body.light-mode .modal-content,
+    body.light-mode .affiliate-popup,
+    body.light-mode .chat-menu {
+      background: rgba(255, 255, 255, 0.98);
+      color: #1e293b;
+    }
+    body.light-mode .modal-content input,
+    body.light-mode .modal-content textarea,
+    body.light-mode .modal-content select {
+      background: rgba(0, 0, 0, 0.05);
+      color: #1e293b;
     }
   </style>
 </head>
@@ -694,10 +889,8 @@
     <div class="nav-buttons">
       <a href="#deriv-tools" class="float-btn btn-deriv">⚡ DERIV API</a>
       <a href="#forex-bot" class="float-btn btn-forex">💱 FOREX BOT</a>
-      <!-- FOREX PORTAL AFFILIATE BUTTON MOVED TO HEADER -->
-      <button class="float-btn btn-affiliate-header" id="forexPortalBtnHeader">
-        🌐 FOREX PORTAL • AFFILIATE
-      </button>
+      <button class="float-btn btn-affiliate-header" id="forexPortalBtnHeader">🌐 FOREX PORTAL • AFFILIATE</button>
+      <button class="theme-toggle" id="themeToggleBtn"><i class="fas fa-moon"></i> <span id="themeText">Dark</span></button>
     </div>
   </div>
 
@@ -813,7 +1006,7 @@
     <iframe src="https://www.youtube.com/embed/a_Gj8v95OWQ?si=amG6p8B6KxAidjnC" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
-  <!-- FOREX BOT SECTION with Payment Details (button removed from here, but kept payment info) -->
+  <!-- FOREX BOT SECTION -->
   <div id="forex-bot" class="forex-area">
     <div style="font-size: 0.7rem; color: #fcd34d; letter-spacing: 1px;">✦ PROPRIETARY SYSTEM</div>
     <h2 style="font-size: 1.8rem; font-weight: 600; margin: 16px 0;">Forex Bot — Fully Automated</h2>
@@ -821,7 +1014,6 @@
     <div class="price-tag">$130 USD</div>
     <a href="https://wa.me/254799045699?text=Hello%20Calekyz%2C%20I%20want%20to%20buy%20the%20Forex%20Bot" target="_blank" class="btn btn-whatsapp">📲 CONTACT ON WHATSAPP</a>
     
-    <!-- PAYMENT DETAILS SECTION (near the button) -->
     <div class="payment-details-area">
       <h4><i class="fas fa-credit-card"></i> PAYMENT DETAILS</h4>
       <div class="payment-icons">
@@ -833,7 +1025,7 @@
     </div>
   </div>
 
-  <!-- ========== SINGLE CLASSES SECTION ========== -->
+  <!-- CLASSES SECTION -->
   <div class="classes-section" id="live-classes">
     <div class="section-badge">🎓 LIVE TRADING EDUCATION</div>
     <h2 style="font-size: 1.9rem; font-weight: 700; margin-bottom: 16px;">Learn from <span style="background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent;">Caleb Orenge</span></h2>
@@ -900,37 +1092,25 @@
 </div>
 </div>
 
-<!-- AFFILIATE POPUP (JustMarkets, Deriv, PUprime) -->
+<!-- AFFILIATE POPUP -->
 <div id="affiliatePopup" class="affiliate-popup-overlay">
   <div class="affiliate-popup">
     <h3>🔥 Featured Affiliate Offers</h3>
     <div class="popup-sub">Create an account & start trading with top brokers</div>
     <div class="affiliate-links">
-      <!-- JustMarkets Affiliate -->
-      <a href="https://one.justmarkets.link/a/f2yyz0kwcm" target="_blank" class="affiliate-card" id="justmarketsLink">
+      <a href="https://one.justmarkets.link/a/f2yyz0kwcm" target="_blank" class="affiliate-card">
         <div class="affiliate-icon"><i class="fas fa-chart-line"></i></div>
-        <div class="affiliate-info">
-          <strong>PUprime</strong>
-          <small>Institutional liquidity • Deep ECN • </small>
-        </div>
+        <div class="affiliate-info"><strong>PUprime</strong><small>Institutional liquidity • Deep ECN</small></div>
         <i class="fas fa-arrow-right"></i>
       </a>
-      <!-- Deriv Affiliate -->
-      <a href="https://deriv.partners/rx?sidc=B7409B98-DAA5-4D02-9341-8A0621A99C68&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU67920" target="_blank" class="affiliate-card" id="derivLink">
+      <a href="https://deriv.partners/rx?sidc=B7409B98-DAA5-4D02-9341-8A0621A99C68&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU67920" target="_blank" class="affiliate-card">
         <div class="affiliate-icon"><i class="fas fa-chart-simple"></i></div>
-        <div class="affiliate-info">
-          <strong>Deriv</strong>
-          <small>Binary & CFDs • Award-winning platform</small>
-        </div>
+        <div class="affiliate-info"><strong>Deriv</strong><small>Binary & CFDs • Award-winning platform</small></div>
         <i class="fas fa-arrow-right"></i>
       </a>
-      <!-- PUprime Affiliate (placeholder) -->
-      <a href="https://one.justmarkets.link/a/f2yyz0kwcm" target="_blank" class="affiliate-card" id="puprimeLink">
+      <a href="https://one.justmarkets.link/a/f2yyz0kwcm" target="_blank" class="affiliate-card">
         <div class="affiliate-icon"><i class="fas fa-building-columns"></i></div>
-        <div class="affiliate-info">
-          <strong>JustMarkets</strong>
-          <small>Create Forex Account • Low spreads • Fast execution</small>
-        </div>
+        <div class="affiliate-info"><strong>JustMarkets</strong><small>Create Forex Account • Low spreads • Fast execution</small></div>
         <i class="fas fa-arrow-right"></i>
       </a>
     </div>
@@ -938,74 +1118,150 @@
   </div>
 </div>
 
-<!-- MODALS (copy trading, custom bot, class enrollment) - same as before -->
+<!-- MODALS -->
 <div id="copyTradingModal" class="modal"><div class="modal-content"><span class="modal-close" onclick="closeCopyModal()">&times;</span><h3>📋 Request Account Management</h3><p style="font-size: 0.8rem; margin-bottom: 16px;">Fill in your details and I'll respond on WhatsApp within 12 hours.</p><form id="copyTradingForm"><label>Full Name *</label><input type="text" id="copyName" required><label>Phone Number (WhatsApp) *</label><input type="tel" id="copyPhone" required><label>Trading Platform</label><select id="copyPlatform"><option>MT4</option><option>MT5</option><option>Deriv</option><option>cTrader</option><option>Other</option></select><label>Initial Deposit Amount (USD)</label><input type="number" id="copyDeposit" placeholder="e.g., 500"><label>Additional Message (Optional)</label><textarea id="copyMessage" rows="3"></textarea><button type="submit" class="btn btn-gold" style="width:100%; margin-top:12px;">SEND TO WHATSAPP →</button></form><p class="risk-warning" style="margin-top: 16px;">⚠️ By submitting, you confirm you understand the risks of forex trading.</p></div></div>
 <div id="customBotModal" class="modal"><div class="modal-content"><span class="modal-close" onclick="closeBotModal()">&times;</span><h3>🤖 Request Custom Trading Bot</h3><p style="font-size: 0.8rem; margin-bottom: 16px;">Describe your bot idea.</p><form id="customBotForm"><label>Your Name *</label><input type="text" id="botName" required><label>Your Email *</label><input type="email" id="botEmail" required><label>Bot Description *</label><textarea id="botDescription" rows="4" required></textarea><label>Budget (Optional)</label><input type="text" id="botBudget"><button type="submit" class="btn btn-primary" style="width:100%; margin-top:12px;">SUBMIT IDEA → EMAIL</button></form></div></div>
 <div id="classModal" class="modal"><div class="modal-content"><span class="modal-close" onclick="closeClassModal()">&times;</span><h3>📚 Enroll in Live Classes</h3><form id="classEnrollmentForm"><label>Select Package *</label><select id="classPackage" required><option value="Forex + Deriv Bundle - $60 USD (8,000 KSH)">🔥 BUNDLE: Forex + Deriv — $60 (8,000 KSH)</option><option value="Deriv Only - $30 USD (4,000 KSH)">📈 DERIV Only — $30 (4,000 KSH)</option></select><label>Full Name *</label><input type="text" id="className" required><label>Phone Number (WhatsApp) *</label><input type="tel" id="classPhone" required><label>Payment Method</label><select id="classPaymentMethod"><option value="M-Pesa">🇰🇪 M-Pesa</option><option value="Crypto">₿ Crypto (BTC / USDT)</option></select><label>Transaction Reference (Optional)</label><input type="text" id="classTxRef"><button type="submit" class="btn btn-gold" style="width:100%;">✅ SEND ENROLLMENT REQUEST</button></form></div></div>
 
+<!-- FLOATING SOCIAL BUTTON (RESTORED) -->
+<div id="floatingSocial" class="floating-social-container">
+  <div class="social-float-btn" id="socialFloatBtn"><i class="fas fa-share-alt"></i></div>
+  <div class="social-float-menu" id="socialFloatMenu">
+    <a href="https://t.me/calekyz254" target="_blank" class="social-float-item"><i class="fab fa-telegram-plane"></i> Telegram</a>
+    <a href="https://tiktok.com/@calekyz.com" target="_blank" class="social-float-item"><i class="fab fa-tiktok"></i> TikTok</a>
+    <a href="https://youtube.com/@calekyztradingsite" target="_blank" class="social-float-item"><i class="fab fa-youtube"></i> YouTube</a>
+    <a href="https://whatsapp.com/channel/0029Vb6NOev89inkCXWzsp3D" target="_blank" class="social-float-item"><i class="fab fa-whatsapp"></i> WhatsApp Channel</a>
+    <a href="https://chat.whatsapp.com/DNyAahz0r2UCkEBm6Otsm2" target="_blank" class="social-float-item"><i class="fab fa-whatsapp"></i> WhatsApp Group</a>
+    <a href="https://wa.me/254799045699" target="_blank" class="social-float-item"><i class="fab fa-whatsapp"></i> WhatsApp Support</a>
+  </div>
+</div>
+
 <!-- SMART CHAT BUTTON -->
-<div class="smart-chat-container"><div class="smart-chat-btn" id="smartChatBtn"><i class="fas fa-comment-dots"></i></div><div class="chat-menu" id="chatMenu"><div class="chat-option ai-option" id="aiChatOption"><i class="fas fa-robot"></i><span>🤖 AI Assistant</span></div><a href="https://wa.me/254799045699?text=Hello%20Calekyz%2C%20I%20need%20help" target="_blank" class="chat-option whatsapp-option"><i class="fab fa-whatsapp"></i><span>📱 WhatsApp Support</span></a></div></div>
+<div class="smart-chat-container"><div class="smart-chat-btn" id="smartChatBtn"><i class="fas fa-comment-dots"></i></div><div class="chat-menu" id="chatMenu"><div class="chat-option ai-option" id="aiChatOption"><i class="fas fa-robot"></i><span>🤖 AI Assistant</span><small>Chatbase AI</small></div><a href="https://wa.me/254799045699?text=Hello%20Calekyz%2C%20I%20need%20help" target="_blank" class="chat-option whatsapp-option"><i class="fab fa-whatsapp"></i><span>📱 WhatsApp Support</span></a></div></div>
 
 <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
 <script>
-  // Affiliate popup logic - using the header button
-  const forexPortalBtnHeader = document.getElementById('forexPortalBtnHeader');
+  // DARK/LIGHT MODE TOGGLE
+  const themeToggle = document.getElementById('themeToggleBtn');
+  function setTheme(isDark) {
+    if (isDark) {
+      document.body.classList.remove('light-mode');
+      if (document.getElementById('themeText')) document.getElementById('themeText').innerHTML = 'Light';
+      if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i> <span id="themeText">Light</span>';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.add('light-mode');
+      if (document.getElementById('themeText')) document.getElementById('themeText').innerHTML = 'Dark';
+      if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-moon"></i> <span id="themeText">Dark</span>';
+      localStorage.setItem('theme', 'light');
+    }
+    const newSpan = document.getElementById('themeText');
+    if (newSpan) newSpan.innerText = document.body.classList.contains('light-mode') ? 'Dark' : 'Light';
+  }
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') setTheme(false);
+  else setTheme(true);
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => setTheme(document.body.classList.contains('light-mode')));
+  }
+
+  // Affiliate popup
+  const forexPortalBtn = document.getElementById('forexPortalBtnHeader');
   const affiliatePopup = document.getElementById('affiliatePopup');
-  const closePopupBtn = document.getElementById('closePopupBtn');
+  const closePopup = document.getElementById('closePopupBtn');
+  if (forexPortalBtn) forexPortalBtn.addEventListener('click', () => affiliatePopup.classList.add('show'));
+  if (closePopup) closePopup.addEventListener('click', () => affiliatePopup.classList.remove('show'));
+  if (affiliatePopup) affiliatePopup.addEventListener('click', (e) => { if (e.target === affiliatePopup) affiliatePopup.classList.remove('show'); });
 
-  forexPortalBtnHeader.addEventListener('click', (e) => {
-    e.preventDefault();
-    affiliatePopup.classList.add('show');
-  });
-
-  closePopupBtn.addEventListener('click', () => {
-    affiliatePopup.classList.remove('show');
-  });
-
-  affiliatePopup.addEventListener('click', (e) => {
-    if (e.target === affiliatePopup) affiliatePopup.classList.remove('show');
-  });
-
-  const puprimeLink = document.getElementById('puprimeLink');
-  puprimeLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('⚠️ Your PUprime affiliate link will be added here soon.');
-  });
-
-  // Modal functions (simplified)
-  function closeCopyModal() { document.getElementById('copyTradingModal').classList.remove('show'); }
-  function closeBotModal() { document.getElementById('customBotModal').classList.remove('show'); }
-  function closeClassModal() { document.getElementById('classModal').classList.remove('show'); }
-  document.getElementById('copyTradingBtn').onclick = () => document.getElementById('copyTradingModal').classList.add('show');
-  document.getElementById('customBotBtn').onclick = () => document.getElementById('customBotModal').classList.add('show');
-  document.getElementById('openClassModalBtn').onclick = () => document.getElementById('classModal').classList.add('show');
+  // Modal functions
+  function closeCopyModal() { document.getElementById('copyTradingModal')?.classList.remove('show'); }
+  function closeBotModal() { document.getElementById('customBotModal')?.classList.remove('show'); }
+  function closeClassModal() { document.getElementById('classModal')?.classList.remove('show'); }
   
-  // Form submits
-  document.getElementById('copyTradingForm').addEventListener('submit', (e) => { e.preventDefault(); window.open(`https://wa.me/254799045699?text=Copy Trading Request from ${document.getElementById('copyName').value}`, '_blank'); closeCopyModal(); });
-  document.getElementById('customBotForm').addEventListener('submit', (e) => { e.preventDefault(); window.location.href = `mailto:caleborenge07@gmail.com?subject=Bot Request&body=${encodeURIComponent(document.getElementById('botDescription').value)}`; closeBotModal(); });
-  document.getElementById('classEnrollmentForm').addEventListener('submit', (e) => { e.preventDefault(); window.open(`https://wa.me/254799045699?text=Class Enrollment: ${document.getElementById('classPackage').value} from ${document.getElementById('className').value}`, '_blank'); closeClassModal(); });
+  document.getElementById('copyTradingBtn')?.addEventListener('click', () => document.getElementById('copyTradingModal')?.classList.add('show'));
+  document.getElementById('customBotBtn')?.addEventListener('click', () => document.getElementById('customBotModal')?.classList.add('show'));
+  document.getElementById('openClassModalBtn')?.addEventListener('click', () => document.getElementById('classModal')?.classList.add('show'));
+  
+  document.getElementById('copyTradingForm')?.addEventListener('submit', (e) => { e.preventDefault(); window.open(`https://wa.me/254799045699?text=Copy Trading Request from ${document.getElementById('copyName')?.value}`, '_blank'); closeCopyModal(); });
+  document.getElementById('customBotForm')?.addEventListener('submit', (e) => { e.preventDefault(); window.location.href = `mailto:caleborenge07@gmail.com?subject=Bot Request&body=${encodeURIComponent(document.getElementById('botDescription')?.value || '')}`; closeBotModal(); });
+  document.getElementById('classEnrollmentForm')?.addEventListener('submit', (e) => { e.preventDefault(); window.open(`https://wa.me/254799045699?text=Class Enrollment: ${document.getElementById('classPackage')?.value} from ${document.getElementById('className')?.value}`, '_blank'); closeClassModal(); });
 
-  // Chat & loader logic (unchanged)
-  const chatBtn = document.getElementById('smartChatBtn'), chatMenu = document.getElementById('chatMenu');
-  chatBtn.addEventListener('click', (e) => { e.stopPropagation(); chatMenu.classList.toggle('show'); });
-  document.addEventListener('click', (e) => { if (!chatBtn.contains(e.target) && !chatMenu.contains(e.target)) chatMenu.classList.remove('show'); });
-  document.getElementById('aiChatOption').addEventListener('click', () => { if(window.chatbase) window.chatbase("open"); else alert("AI loading..."); });
+  // Chat button
+  const chatBtn = document.getElementById('smartChatBtn');
+  const chatMenu = document.getElementById('chatMenu');
+  if (chatBtn && chatMenu) {
+    chatBtn.addEventListener('click', (e) => { e.stopPropagation(); chatMenu.classList.toggle('show'); });
+    document.addEventListener('click', (e) => { if (!chatBtn.contains(e.target) && !chatMenu.contains(e.target)) chatMenu.classList.remove('show'); });
+  }
+  
+  // AI Chat option with Chatbase
+  const aiOption = document.getElementById('aiChatOption');
+  if (aiOption) {
+    aiOption.addEventListener('click', () => {
+      if (window.chatbase) {
+        window.chatbase("open");
+      } else {
+        alert("🤖 AI Assistant is loading. Please wait a moment or use WhatsApp support.");
+      }
+    });
+  }
 
-  // Canvas & Loader
-  const canvas = document.getElementById('candleCanvas'), ctx = canvas.getContext('2d');
-  function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-  resizeCanvas(); window.addEventListener('resize', resizeCanvas);
-  let candles = [];
-  for (let i = 0; i < 30; i++) candles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, bodyHeight: 25 + Math.random() * 60, width: 6 + Math.random() * 10, isGreen: Math.random() > 0.5, speed: 0.3 + Math.random() * 1, wickTop: 15 + Math.random() * 25, wickBottom: 15 + Math.random() * 25 });
-  function drawCandles() { if (!ctx) return; ctx.clearRect(0, 0, canvas.width, canvas.height); for (let c of candles) { c.y -= c.speed; if (c.y + c.bodyHeight + c.wickBottom < 0) { c.y = canvas.height + c.bodyHeight; c.x = Math.random() * canvas.width; c.isGreen = Math.random() > 0.5; c.bodyHeight = 25 + Math.random() * 60; c.wickTop = 15 + Math.random() * 25; c.wickBottom = 15 + Math.random() * 25; } const candleTop = c.y - c.bodyHeight; const halfWidth = c.width / 2; ctx.beginPath(); ctx.strokeStyle = c.isGreen ? 'rgba(0, 255, 136, 0.6)' : 'rgba(255, 68, 102, 0.6)'; ctx.lineWidth = 1.5; ctx.moveTo(c.x, candleTop); ctx.lineTo(c.x, candleTop - c.wickTop); ctx.stroke(); ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(c.x, c.y + c.wickBottom); ctx.stroke(); const gradient = ctx.createLinearGradient(c.x - halfWidth, candleTop, c.x + halfWidth, c.y); gradient.addColorStop(0, c.isGreen ? 'rgba(0, 200, 100, 0.35)' : 'rgba(255, 80, 100, 0.3)'); gradient.addColorStop(1, c.isGreen ? 'rgba(0, 150, 80, 0.2)' : 'rgba(200, 50, 70, 0.2)'); ctx.fillStyle = gradient; ctx.fillRect(c.x - halfWidth, candleTop, c.width, c.bodyHeight); ctx.strokeStyle = c.isGreen ? '#00ff88' : '#ff4466'; ctx.strokeRect(c.x - halfWidth, candleTop, c.width, c.bodyHeight); } requestAnimationFrame(drawCandles); } drawCandles();
+  // Canvas animation
+  const canvas = document.getElementById('candleCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+    let candles = [];
+    for (let i = 0; i < 30; i++) candles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, bodyHeight: 25 + Math.random() * 60, width: 6 + Math.random() * 10, isGreen: Math.random() > 0.5, speed: 0.3 + Math.random() * 1 });
+    function drawCandles() { if (!ctx) return; ctx.clearRect(0, 0, canvas.width, canvas.height); for (let c of candles) { c.y -= c.speed; if (c.y + c.bodyHeight < 0) { c.y = canvas.height + c.bodyHeight; c.x = Math.random() * canvas.width; c.isGreen = Math.random() > 0.5; c.bodyHeight = 25 + Math.random() * 60; } const halfWidth = c.width / 2; ctx.fillStyle = c.isGreen ? 'rgba(0, 200, 100, 0.3)' : 'rgba(255, 80, 100, 0.25)'; ctx.fillRect(c.x - halfWidth, c.y - c.bodyHeight, c.width, c.bodyHeight); ctx.strokeStyle = c.isGreen ? '#00ff88' : '#ff4466'; ctx.strokeRect(c.x - halfWidth, c.y - c.bodyHeight, c.width, c.bodyHeight); } requestAnimationFrame(drawCandles); }
+    drawCandles();
+  }
+  
+  // Loader counter
   let percent = 0, activeCount = 0, targetActive = 809;
-  const percentInterval = setInterval(() => { if (percent < 100) { percent += 2; document.getElementById('loadingPercent').innerText = `INITIALIZING ${percent}%`; } }, 100);
-  const activeInterval = setInterval(() => { if (activeCount < targetActive) { activeCount += Math.ceil(targetActive / 50); if (activeCount > targetActive) activeCount = targetActive; document.getElementById('activeUserCount').innerText = activeCount.toLocaleString(); } else clearInterval(activeInterval); }, 100);
-  setTimeout(() => { const loader = document.getElementById('pageLoader'); const mainContent = document.getElementById('mainContent'); loader.classList.add('hide'); mainContent.classList.add('visible'); setTimeout(() => { loader.style.display = 'none'; clearInterval(percentInterval); }, 600); }, 5000);
-  window.addEventListener('scroll', () => { const btn = document.getElementById('scrollTopBtn'); btn.classList.toggle('visible', window.scrollY > 300); });
-  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  window.onclick = function(event) { if (event.target.classList && event.target.classList.contains('modal')) event.target.classList.remove('show'); };
+  const percentInterval = setInterval(() => { if (percent < 100) { percent += 2; const pEl = document.getElementById('loadingPercent'); if (pEl) pEl.innerText = `INITIALIZING ${percent}%`; } }, 100);
+  const activeInterval = setInterval(() => { if (activeCount < targetActive) { activeCount += Math.ceil(targetActive / 50); if (activeCount > targetActive) activeCount = targetActive; const aEl = document.getElementById('activeUserCount'); if (aEl) aEl.innerText = activeCount.toLocaleString(); } else clearInterval(activeInterval); }, 100);
+  setTimeout(() => { const loader = document.getElementById('pageLoader'); const mainContent = document.getElementById('mainContent'); if (loader) loader.classList.add('hide'); if (mainContent) mainContent.classList.add('visible'); setTimeout(() => { if (loader) loader.style.display = 'none'; clearInterval(percentInterval); }, 600); }, 5000);
+  
+  // Scroll to top
+  window.addEventListener('scroll', () => { const btn = document.getElementById('scrollTopBtn'); if (btn) btn.classList.toggle('visible', window.scrollY > 300); });
+  window.scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.onclick = (event) => { if (event.target.classList && event.target.classList.contains('modal')) event.target.classList.remove('show'); };
+
+  // FLOATING SOCIAL BUTTON - DRAGGABLE (works on both laptop and phone)
+  const socialContainer = document.getElementById('floatingSocial');
+  const socialFloatBtn = document.getElementById('socialFloatBtn');
+  const socialFloatMenu = document.getElementById('socialFloatMenu');
+  let isDraggingSocial = false, dragStartX, dragStartY, startLeft, startTop;
+  
+  function getSocialCoord(e) { return { x: e.clientX ?? (e.touches?.[0]?.clientX || 0), y: e.clientY ?? (e.touches?.[0]?.clientY || 0) }; }
+  function onSocialDragStart(e) { e.preventDefault(); isDraggingSocial = true; const rect = socialContainer.getBoundingClientRect(); startLeft = rect.left; startTop = rect.top; const { x, y } = getSocialCoord(e); dragStartX = x - startLeft; dragStartY = y - startTop; socialContainer.style.transition = 'none'; }
+  function onSocialDragMove(e) { if (!isDraggingSocial) return; e.preventDefault(); const { x, y } = getSocialCoord(e); let newLeft = x - dragStartX; let newTop = y - dragStartY; newLeft = Math.min(Math.max(0, newLeft), window.innerWidth - socialContainer.offsetWidth); newTop = Math.min(Math.max(0, newTop), window.innerHeight - socialContainer.offsetHeight); socialContainer.style.left = newLeft + 'px'; socialContainer.style.top = newTop + 'px'; socialContainer.style.transform = 'none'; }
+  function onSocialDragEnd() { if (!isDraggingSocial) return; isDraggingSocial = false; socialContainer.style.transition = ''; const rect = socialContainer.getBoundingClientRect(); localStorage.setItem('socialFloatLeft', rect.left); localStorage.setItem('socialFloatTop', rect.top); }
+  socialFloatBtn.addEventListener('mousedown', onSocialDragStart); window.addEventListener('mousemove', onSocialDragMove); window.addEventListener('mouseup', onSocialDragEnd);
+  socialFloatBtn.addEventListener('touchstart', onSocialDragStart, { passive: false }); window.addEventListener('touchmove', onSocialDragMove, { passive: false }); window.addEventListener('touchend', onSocialDragEnd);
+  socialFloatBtn.addEventListener('click', (e) => { if (isDraggingSocial) return; e.stopPropagation(); socialFloatMenu.classList.toggle('show'); });
+  document.addEventListener('click', (e) => { if (!socialContainer.contains(e.target)) socialFloatMenu.classList.remove('show'); });
+  const savedLeft = localStorage.getItem('socialFloatLeft'), savedTop = localStorage.getItem('socialFloatTop');
+  if (savedLeft && savedTop) { socialContainer.style.left = savedLeft + 'px'; socialContainer.style.top = savedTop + 'px'; socialContainer.style.transform = 'none'; }
+</script>
+
+<!-- Chatbase AI Script - WORKING -->
+<script>
+  (function(){
+    if(!window.chatbase || window.chatbase("getState")!=="initialized") {
+      window.chatbase = (...args)=>(window.chatbase.q=window.chatbase.q||[]).push(args);
+      window.chatbase.q = window.chatbase.q||[];
+      const script = document.createElement('script');
+      script.src = 'https://www.chatbase.co/embed.min.js';
+      script.id = 'UzJY4tKGlE5QkFQn8p7bR';
+      script.setAttribute('data-domain', 'www.chatbase.co');
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+  })();
 </script>
 </body>
 </html>
