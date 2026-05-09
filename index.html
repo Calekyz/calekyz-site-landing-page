@@ -1018,38 +1018,68 @@
         <span><i class="fas fa-university"></i> Bank: Equity (upon request)</span>
       </div>
       <p style="font-size: 0.65rem; color:#5a6a82; margin-top: 16px;">*Payment confirmation via WhatsApp after transfer*</p>
-      // FREE BOT APPLICATION - SEND TO WHATSAPP
-  const freeBotForm = document.getElementById('freeBotApplicationForm');
-  if (freeBotForm) {
-    freeBotForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+    </div>
+
+    <!-- NEW: FREE BOT APPLICATION SECTION -->
+    <div style="margin-top: 40px; padding: 32px; background: linear-gradient(135deg, rgba(0,100,255,0.1), rgba(255,215,0,0.05)); border-radius: 28px; border: 2px solid rgba(255,215,0,0.4);">
       
-      // Get values
-      const name = document.getElementById('freeBotName').value;
-      const email = document.getElementById('freeBotEmail').value;
-      const mt5Id = document.getElementById('freeBotMt5Id').value;
-      const confirmed = document.getElementById('freeBotConfirm').checked;
-      
-      // Validation
-      if (!name || !email || !mt5Id) {
-        alert('❌ Please fill in all fields.');
-        return;
-      }
-      if (!confirmed) {
-        alert('❌ Please confirm that you have created your forex account using the affiliate link above.');
-        return;
-      }
-      
-      // Create WhatsApp message
-      const message = `*NEW FREE BOT APPLICATION*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*MT5 Login ID:* ${mt5Id}%0A*Confirmed account created via affiliate link:* Yes%0A%0A⏱️ Please integrate bot within 2 hours.`;
-      
-      // Open WhatsApp
-      window.open(`https://wa.me/254799045699?text=${message}`, '_blank');
-      
-      // Optional: Clear form
-      freeBotForm.reset();
-    });
-  }
+      <!-- Step 1: Affiliate Link -->
+      <div style="text-align: center; margin-bottom: 28px;">
+        <div style="font-size: 0.8rem; color: #ffd700; letter-spacing: 2px; margin-bottom: 8px;">⭐ STEP 1 ⭐</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">GET THE FOREX EA FOR FREE</h3>
+        <p style="color: #cbd5e1; font-size: 0.85rem; margin-bottom: 16px;">Click below to register (it's free). You must complete this step before applying for the bot.</p>
+        <a href="https://one.justmarkets.link/a/f2yyz0kwcm" target="_blank" id="affiliateLinkBtn" class="btn btn-gold" style="background: linear-gradient(135deg, #ffd700, #ffaa00); font-size: 1rem; padding: 14px 32px;">
+          🌐 CREATE FOREX ACCOUNT NOW → FREE
+        </a>
+        <p style="font-size: 0.7rem; color: #5a6a82; margin-top: 10px;">Opens in new tab • Takes 2-3 minutes</p>
+      </div>
+
+      <!-- Divider -->
+      <div style="text-align: center; margin: 20px 0; position: relative;">
+        <span style="background: rgba(0,100,255,0.3); padding: 6px 16px; border-radius: 40px; font-size: 0.7rem;">⬇ THEN STEP 2 ⬇</span>
+      </div>
+
+      <!-- Step 2: Application Form -->
+      <div>
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div style="font-size: 0.8rem; color: #60a5fa; letter-spacing: 2px;">🎯 STEP 2</div>
+          <h3 style="font-size: 1.3rem;">Apply for Your Free Bot</h3>
+          <p style="color: #cbd5e1; font-size: 0.8rem;">After creating your account, fill out the form below</p>
+        </div>
+
+        <form id="freeBotApplicationForm">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <label style="font-size: 0.8rem; color: #a5b4fc; display: block; margin-bottom: 6px;">Full Name *</label>
+              <input type="text" id="freeBotName" required placeholder="John Doe" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(0,100,255,0.3); border-radius: 12px; color: white; font-family: inherit;">
+            </div>
+            <div>
+              <label style="font-size: 0.8rem; color: #a5b4fc; display: block; margin-bottom: 6px;">Email Address *</label>
+              <input type="email" id="freeBotEmail" required placeholder="you@example.com" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(0,100,255,0.3); border-radius: 12px; color: white; font-family: inherit;">
+            </div>
+            <div>
+              <label style="font-size: 0.8rem; color: #a5b4fc; display: block; margin-bottom: 6px;">MT5 Login ID (ONLY - No Password) *</label>
+              <input type="text" id="freeBotMt5Id" required placeholder="e.g., 12345678" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(0,100,255,0.3); border-radius: 12px; color: white; font-family: inherit;">
+              <p style="font-size: 0.6rem; color: #ffaa00; margin-top: 4px;">⚠️ Only provide your login ID. NEVER share your password.</p>
+            </div>
+            <div>
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <input type="checkbox" id="freeBotConfirm" required style="width: 18px; height: 18px;">
+                <span style="font-size: 0.8rem; color: #cbd5e1;">✅ I have created my forex account using the affiliate link above</span>
+              </label>
+            </div>
+          </div>
+          
+          <button type="submit" id="sendWhatsAppApplicationBtn" class="btn btn-whatsapp" style="width: 100%; margin-top: 24px; justify-content: center; padding: 14px; font-size: 1rem;">
+            📤 SEND APPLICATION TO WHATSAPP
+          </button>
+        </form>
+
+        <p style="text-align: center; font-size: 0.7rem; color: #5a6a82; margin-top: 16px;">
+          ⏱️ After sending, I will integrate the bot to your MT5 account within 2 hours.<br>
+          I will contact you via WhatsApp/Email once completed.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -1232,6 +1262,40 @@
       } else {
         alert("🤖 AI Assistant is loading. Please wait a moment or use WhatsApp support.");
       }
+    });
+  }
+
+  // FREE BOT APPLICATION - SEND TO WHATSAPP
+  const freeBotForm = document.getElementById('freeBotApplicationForm');
+  if (freeBotForm) {
+    freeBotForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get values
+      const name = document.getElementById('freeBotName').value;
+      const email = document.getElementById('freeBotEmail').value;
+      const mt5Id = document.getElementById('freeBotMt5Id').value;
+      const confirmed = document.getElementById('freeBotConfirm').checked;
+      
+      // Validation
+      if (!name || !email || !mt5Id) {
+        alert('❌ Please fill in all fields.');
+        return;
+      }
+      if (!confirmed) {
+        alert('❌ Please confirm that you have created your forex account using the affiliate link above.');
+        return;
+      }
+      
+      // Create WhatsApp message
+      const message = `*NEW FREE BOT APPLICATION*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*MT5 Login ID:* ${mt5Id}%0A*Confirmed account created via affiliate link:* Yes%0A%0A⏱️ Please integrate bot within 2 hours.`;
+      
+      // Open WhatsApp
+      window.open(`https://wa.me/254799045699?text=${message}`, '_blank');
+      
+      // Optional: Show success message and clear form
+      alert('✅ Application sent! I will contact you on WhatsApp within 2 hours to confirm the bot integration.');
+      freeBotForm.reset();
     });
   }
 
