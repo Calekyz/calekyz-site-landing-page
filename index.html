@@ -1018,6 +1018,38 @@
         <span><i class="fas fa-university"></i> Bank: Equity (upon request)</span>
       </div>
       <p style="font-size: 0.65rem; color:#5a6a82; margin-top: 16px;">*Payment confirmation via WhatsApp after transfer*</p>
+      // FREE BOT APPLICATION - SEND TO WHATSAPP
+  const freeBotForm = document.getElementById('freeBotApplicationForm');
+  if (freeBotForm) {
+    freeBotForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get values
+      const name = document.getElementById('freeBotName').value;
+      const email = document.getElementById('freeBotEmail').value;
+      const mt5Id = document.getElementById('freeBotMt5Id').value;
+      const confirmed = document.getElementById('freeBotConfirm').checked;
+      
+      // Validation
+      if (!name || !email || !mt5Id) {
+        alert('❌ Please fill in all fields.');
+        return;
+      }
+      if (!confirmed) {
+        alert('❌ Please confirm that you have created your forex account using the affiliate link above.');
+        return;
+      }
+      
+      // Create WhatsApp message
+      const message = `*NEW FREE BOT APPLICATION*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*MT5 Login ID:* ${mt5Id}%0A*Confirmed account created via affiliate link:* Yes%0A%0A⏱️ Please integrate bot within 2 hours.`;
+      
+      // Open WhatsApp
+      window.open(`https://wa.me/254799045699?text=${message}`, '_blank');
+      
+      // Optional: Clear form
+      freeBotForm.reset();
+    });
+  }
     </div>
   </div>
 
