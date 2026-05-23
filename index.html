@@ -1584,5 +1584,339 @@
 <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yvOGp-C94Skb34vFutYzd";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
+  <!-- MARKETING BURNER POPUP - WELCOME MODAL -->
+<div id="welcomeBurnerPopup" class="welcome-popup-overlay">
+  <div class="welcome-popup">
+    <button class="welcome-popup-close" id="closeWelcomePopup">&times;</button>
+    <div class="welcome-popup-icon">🔥</div>
+    <h3>Special Offers Just For You!</h3>
+    <p class="welcome-subtitle">Click on any offer to jump directly to that section</p>
+    
+    <div class="welcome-offers-grid">
+      <!-- Kairon Analysis -->
+      <div class="welcome-offer-card" data-section="kairon">
+        <div class="offer-icon">🚀</div>
+        <div class="offer-info">
+          <div class="offer-title">Expert Trader Kairon</div>
+          <div class="offer-price">$65 USD</div>
+          <div class="offer-desc">Advanced Market Prediction + Bot Integration</div>
+        </div>
+      </div>
+      
+      <!-- Forex Bot -->
+      <div class="welcome-offer-card" data-section="forexbot">
+        <div class="offer-icon">💱</div>
+        <div class="offer-info">
+          <div class="offer-title">Forex Bot</div>
+          <div class="offer-price">$85 USD (Offer 🥳)</div>
+          <div class="offer-desc">Fully Automated MT4/MT5</div>
+        </div>
+      </div>
+      
+      <!-- Live Classes -->
+      <div class="welcome-offer-card" data-section="classes">
+        <div class="offer-icon">📚</div>
+        <div class="offer-info">
+          <div class="offer-title">Live Trading Classes</div>
+          <div class="offer-price">From $30 USD</div>
+          <div class="offer-desc">Daily 9PM - 11PM with Caleb</div>
+        </div>
+      </div>
+      
+      <!-- Deriv Third Party -->
+      <div class="welcome-offer-card" data-section="deriv">
+        <div class="offer-icon">⚡</div>
+        <div class="offer-info">
+          <div class="offer-title">Deriv Third Party API</div>
+          <div class="offer-price">Institutional Grade</div>
+          <div class="offer-desc">Automated Binary Trading</div>
+        </div>
+      </div>
+      
+      <!-- Affiliate Portals -->
+      <div class="welcome-offer-card" data-section="affiliate">
+        <div class="offer-icon">🔗</div>
+        <div class="offer-info">
+          <div class="offer-title">Affiliate Portals</div>
+          <div class="offer-price">Deriv | PU Prime | ExpertOption</div>
+          <div class="offer-desc">Create free accounts & start trading</div>
+        </div>
+      </div>
+    </div>
+    
+    <button class="welcome-dismiss-btn" id="dismissWelcomePopup">Continue to Site →</button>
+    <p class="welcome-hint">⏱️ This popup won't show again for 24 hours</p>
+  </div>
+</div>
+
+<style>
+/* WELCOME BURNER POPUP STYLES */
+.welcome-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(16px);
+  z-index: 30000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInBackdrop 0.3s ease;
+}
+.welcome-popup-overlay.show {
+  display: flex;
+}
+@keyframes fadeInBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.welcome-popup {
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(24px);
+  border-radius: 32px;
+  border: 2px solid linear-gradient(135deg, #0064ff, #ff3333);
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 32px 28px;
+  position: relative;
+  animation: popupSlideIn 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+@keyframes popupSlideIn {
+  from { opacity: 0; transform: scale(0.9) translateY(30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.welcome-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: all 0.2s;
+}
+.welcome-popup-close:hover {
+  color: #ff4466;
+  transform: scale(1.1);
+}
+.welcome-popup-icon {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.welcome-popup h3 {
+  font-size: 1.8rem;
+  text-align: center;
+  background: linear-gradient(135deg, #0064ff, #ff3333);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+}
+.welcome-subtitle {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+}
+.welcome-offers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.welcome-offer-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(0, 100, 255, 0.08);
+  border: 1px solid rgba(0, 100, 255, 0.2);
+  border-radius: 20px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.welcome-offer-card:hover {
+  background: rgba(0, 100, 255, 0.2);
+  border-color: #ff3333;
+  transform: translateX(8px) scale(1.01);
+}
+.welcome-offer-card .offer-icon {
+  font-size: 32px;
+  min-width: 50px;
+  text-align: center;
+}
+.welcome-offer-card .offer-info {
+  flex: 1;
+}
+.welcome-offer-card .offer-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  color: #eef2ff;
+}
+.welcome-offer-card .offer-price {
+  font-size: 0.8rem;
+  color: #ffd700;
+  font-weight: 600;
+}
+.welcome-offer-card .offer-desc {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+.welcome-dismiss-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0064ff, #0050cc);
+  border: none;
+  border-radius: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+.welcome-dismiss-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 100, 255, 0.3);
+}
+.welcome-hint {
+  text-align: center;
+  font-size: 0.65rem;
+  color: #5a6a82;
+  margin-top: 16px;
+}
+body.light-mode .welcome-popup {
+  background: rgba(255, 255, 255, 0.98);
+}
+body.light-mode .welcome-offer-card .offer-title {
+  color: #1e293b;
+}
+@media (max-width: 500px) {
+  .welcome-popup { padding: 24px 18px; }
+  .welcome-offer-card { padding: 10px 14px; }
+  .welcome-offer-card .offer-icon { font-size: 28px; min-width: 42px; }
+  .welcome-offer-card .offer-title { font-size: 0.95rem; }
+}
+</style>
+
+<script>
+// WELCOME BURNER POPUP - appears on load
+(function() {
+  // Check if popup was shown in last 24 hours
+  const lastShown = localStorage.getItem('welcomePopupShown');
+  const now = Date.now();
+  const twentyFourHours = 24 * 60 * 60 * 1000;
+  
+  // Function to show popup
+  function showWelcomePopup() {
+    const popup = document.getElementById('welcomeBurnerPopup');
+    if (popup) popup.classList.add('show');
+  }
+  
+  // Function to hide popup and set localStorage
+  function hideWelcomePopup() {
+    const popup = document.getElementById('welcomeBurnerPopup');
+    if (popup) popup.classList.remove('show');
+    localStorage.setItem('welcomePopupShown', now.toString());
+  }
+  
+  // Show popup after main content loads (5 seconds after page load)
+  setTimeout(function() {
+    if (!lastShown || (now - parseInt(lastShown)) > twentyFourHours) {
+      showWelcomePopup();
+    }
+  }, 5000); // Shows 5 seconds after page load (after loader finishes)
+  
+  // Close buttons
+  const closeBtn = document.getElementById('closeWelcomePopup');
+  const dismissBtn = document.getElementById('dismissWelcomePopup');
+  
+  if (closeBtn) closeBtn.addEventListener('click', hideWelcomePopup);
+  if (dismissBtn) dismissBtn.addEventListener('click', hideWelcomePopup);
+  
+  // Click outside to close
+  const overlay = document.getElementById('welcomeBurnerPopup');
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) hideWelcomePopup();
+    });
+  }
+  
+  // SCROLL TO SECTION FUNCTIONALITY
+  function scrollToSection(sectionId) {
+    hideWelcomePopup();
+    setTimeout(() => {
+      let element = null;
+      switch(sectionId) {
+        case 'kairon':
+          element = document.getElementById('kaironSection');
+          if (!element) {
+            // If no anchor, scroll to the Kairon button
+            const kaironBtn = document.getElementById('openKaironBtn');
+            if (kaironBtn) kaironBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          break;
+        case 'forexbot':
+          element = document.getElementById('forex-bot');
+          break;
+        case 'classes':
+          element = document.getElementById('live-classes');
+          break;
+        case 'deriv':
+          element = document.getElementById('deriv-tools');
+          break;
+        case 'affiliate':
+          // Open affiliate popup instead of scrolling
+          const affiliatePopupBtn = document.getElementById('forexPortalBtnHeader');
+          if (affiliatePopupBtn) {
+            affiliatePopupBtn.click();
+          }
+          return;
+        default:
+          return;
+      }
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Add highlight effect
+        element.style.transition = 'box-shadow 0.3s';
+        element.style.boxShadow = '0 0 0 3px #0064ff, 0 0 0 6px #ff3333';
+        setTimeout(() => {
+          element.style.boxShadow = '';
+        }, 1500);
+      }
+    }, 300);
+  }
+  
+  // Add click handlers to all offer cards
+  const cards = document.querySelectorAll('.welcome-offer-card');
+  cards.forEach(card => {
+    card.addEventListener('click', function() {
+      const section = this.getAttribute('data-section');
+      scrollToSection(section);
+    });
+  });
+  
+  // Add an anchor for Kairon section if not exists
+  const kaironBtn = document.getElementById('openKaironBtn');
+  if (kaironBtn && !document.getElementById('kaironSection')) {
+    const kaironAnchor = document.createElement('div');
+    kaironAnchor.id = 'kaironSection';
+    kaironAnchor.style.position = 'relative';
+    kaironAnchor.style.top = '-80px';
+    kaironAnchor.style.visibility = 'hidden';
+    kaironAnchor.style.height = '0';
+    kaironBtn.parentNode.insertBefore(kaironAnchor, kaironBtn);
+  }
+})();
+</script>
 </body>
 </html>
