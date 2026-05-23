@@ -27,7 +27,7 @@
       box-sizing: border-box;
     }
 
-    /* LIGHT/DARK MODE VARIABLES */
+    /* LIGHT/DARK MODE VARIABLES - BLUE & RED THEME */
     :root {
       --bg-primary: #0a0e17;
       --bg-overlay: rgba(0, 0, 0, 0.75);
@@ -37,6 +37,8 @@
       --border-color: rgba(0, 100, 255, 0.2);
       --navbar-bg: rgba(15, 23, 42, 0.7);
       --footer-border: rgba(255, 255, 255, 0.05);
+      --accent-blue: #0064ff;
+      --accent-red: #ff3333;
     }
 
     body.light-mode {
@@ -132,7 +134,7 @@
 
     @keyframes borderPulse {
       0% { border-color: rgba(0, 100, 255, 0.5); box-shadow: 0 0 20px rgba(0, 100, 255, 0.2), inset 0 0 10px rgba(0, 100, 255, 0.05); }
-      50% { border-color: rgba(255, 215, 0, 0.7); box-shadow: 0 0 50px rgba(255, 215, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.1); }
+      50% { border-color: rgba(255, 51, 51, 0.7); box-shadow: 0 0 50px rgba(255, 51, 51, 0.3), inset 0 0 20px rgba(255, 51, 51, 0.1); }
       100% { border-color: rgba(0, 100, 255, 0.5); box-shadow: 0 0 20px rgba(0, 100, 255, 0.2), inset 0 0 10px rgba(0, 100, 255, 0.05); }
     }
 
@@ -149,7 +151,7 @@
 
     @keyframes logoGlow {
       0%, 100% { box-shadow: 0 0 20px rgba(0, 100, 255, 0.4); border-color: #0064ff; }
-      50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); border-color: #ffd700; }
+      50% { box-shadow: 0 0 50px rgba(255, 51, 51, 0.5); border-color: #ff3333; }
     }
 
     .loader-text {
@@ -162,7 +164,7 @@
     }
 
     .loader-text span {
-      background: linear-gradient(135deg, #0064ff, #ffd700);
+      background: linear-gradient(135deg, #0064ff, #ff3333);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -192,7 +194,7 @@
 
     .active-users { margin: 16px 0; }
     .active-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: #5a6a82; }
-    .active-number { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent; animation: countPulse 1s ease-in-out infinite; }
+    .active-number { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #0064ff, #ff3333); -webkit-background-clip: text; background-clip: text; color: transparent; animation: countPulse 1s ease-in-out infinite; }
 
     @keyframes countPulse {
       0%, 100% { opacity: 0.8; transform: scale(1); }
@@ -202,7 +204,7 @@
     .loader-dots { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
     .loader-dots span { width: 10px; height: 10px; border-radius: 50%; animation: dotBounce 0.6s ease-in-out infinite; }
     .loader-dots span:nth-child(1) { background: #0064ff; animation-delay: 0s; }
-    .loader-dots span:nth-child(2) { background: #ffd700; animation-delay: 0.15s; }
+    .loader-dots span:nth-child(2) { background: #ff3333; animation-delay: 0.15s; }
     .loader-dots span:nth-child(3) { background: #0064ff; animation-delay: 0.3s; }
 
     @keyframes dotBounce {
@@ -236,7 +238,7 @@
     .logo-container { display: flex; align-items: center; gap: 12px; }
     .logo-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1.5px solid #0064ff; }
     .logo-text { font-size: 1.4rem; font-weight: 700; background: linear-gradient(135deg, #FFFFFF, #cbd5e1); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .logo-text span { background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .logo-text span { background: linear-gradient(135deg, #0064ff, #ff3333); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
     .nav-buttons { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
     .float-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 22px; border-radius: 40px; font-weight: 600; font-size: 0.8rem; text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: none; background: rgba(0, 100, 255, 0.15); color: #60a5fa; border: 1px solid rgba(0, 100, 255, 0.4); }
@@ -244,7 +246,7 @@
     
     /* ANIMATED DERIV API BUTTON */
     .btn-deriv {
-      background: linear-gradient(135deg, #0064ff, #00a3ff, #0064ff);
+      background: linear-gradient(135deg, #0064ff, #ff3333, #0064ff);
       background-size: 200% 200%;
       animation: gradientShift 3s ease infinite, floatUpDown 1.5s ease-in-out infinite;
       color: white;
@@ -267,10 +269,10 @@
       100% { transform: translateY(0px); }
     }
     
-    .btn-forex { background: rgba(255, 215, 0, 0.1); color: #fcd34d; border: 1px solid rgba(255, 215, 0, 0.3); }
-    .btn-forex:hover { background: #ffd700; color: #0a0f1c; transform: translateY(-2px); }
-    .btn-affiliate-header { background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,100,255,0.15)); color: #ffd700; border: 1px solid rgba(255,215,0,0.5); }
-    .btn-affiliate-header:hover { background: linear-gradient(135deg, #ffd700, #0064ff); color: #0a0f1c; transform: translateY(-2px); }
+    .btn-forex { background: rgba(255, 51, 51, 0.1); color: #ff6666; border: 1px solid rgba(255, 51, 51, 0.3); }
+    .btn-forex:hover { background: #ff3333; color: white; transform: translateY(-2px); }
+    .btn-affiliate-header { background: linear-gradient(135deg, rgba(255,51,51,0.15), rgba(0,100,255,0.15)); color: #ff6666; border: 1px solid rgba(255,51,51,0.5); }
+    .btn-affiliate-header:hover { background: linear-gradient(135deg, #ff3333, #0064ff); color: white; transform: translateY(-2px); }
 
     /* Dark/Light Mode Toggle Button */
     .theme-toggle {
@@ -326,11 +328,11 @@
     .hero-content { flex: 1; min-width: 280px; }
     .hero-badge { background: rgba(0, 100, 255, 0.12); color: #60a5fa; padding: 4px 14px; border-radius: 40px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; display: inline-block; margin-bottom: 24px; border: 1px solid rgba(0, 100, 255, 0.3); }
     .hero h1 { font-size: 3.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 24px; }
-    .hero h1 span { background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero h1 span { background: linear-gradient(135deg, #0064ff, #ff3333); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero p { font-size: 1rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px; max-width: 500px; }
     .api-powered-badge { display: inline-flex; align-items: center; gap: 12px; background: rgba(0, 100, 255, 0.08); border: 1px solid rgba(0, 100, 255, 0.2); border-radius: 60px; padding: 6px 18px; margin-top: 8px; }
     .api-powered-text { font-size: 0.7rem; font-weight: 500; color: #60a5fa; font-family: 'JetBrains Mono', monospace; }
-    .api-powered-text strong { color: #ffd700; }
+    .api-powered-text strong { color: #ff3333; }
 
     /* Cards */
     .card, .forex-area, .trust-badge, .video-wrapper, .service-card, .class-card {
@@ -345,7 +347,7 @@
     .card:hover { border-color: rgba(0, 100, 255, 0.4); }
     
     .service-card { padding: 32px; margin-bottom: 40px; transition: all 0.2s ease; }
-    .service-card:hover { border-color: rgba(255, 215, 0, 0.4); transform: translateY(-4px); }
+    .service-card:hover { border-color: rgba(255, 51, 51, 0.4); transform: translateY(-4px); }
 
     /* Classes Section Styles */
     .classes-section {
@@ -354,7 +356,7 @@
     }
     .section-badge {
       font-size: 0.7rem;
-      color: #ffd700;
+      color: #ff3333;
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 12px;
@@ -367,7 +369,7 @@
     }
     .class-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(255, 215, 0, 0.5);
+      border-color: rgba(255, 51, 51, 0.5);
       box-shadow: 0 20px 30px -15px rgba(0,0,0,0.3);
     }
     .class-icon {
@@ -394,12 +396,12 @@
     }
     .class-teacher {
       font-size: 0.9rem;
-      background: rgba(255, 215, 0, 0.12);
+      background: rgba(255, 51, 51, 0.12);
       display: inline-block;
       padding: 6px 18px;
       border-radius: 40px;
       margin: 12px 0;
-      color: #fcd34d;
+      color: #ff6666;
     }
     .prices-container {
       display: flex;
@@ -419,7 +421,7 @@
     .price-amount {
       font-size: 2rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #0064ff, #ffd700);
+      background: linear-gradient(135deg, #0064ff, #ff3333);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -448,7 +450,7 @@
     .payment-methods i {
       font-size: 1.1rem;
       margin-right: 6px;
-      color: #ffd700;
+      color: #ff3333;
     }
     .btn-class {
       width: 80%;
@@ -470,7 +472,7 @@
     .profit-split {
       font-size: 2rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #ffd700, #ffaa00);
+      background: linear-gradient(135deg, #ff3333, #ff6666);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -481,8 +483,8 @@
     .api-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 40px; font-weight: 500; font-size: 0.85rem; text-decoration: none; transition: all 0.2s ease; font-family: 'JetBrains Mono', monospace; }
     .btn-legacy { background: rgba(0, 100, 255, 0.15); color: #60a5fa; border: 1px solid rgba(0, 100, 255, 0.3); }
     .btn-legacy:hover { background: #0064ff; color: white; transform: translateY(-2px); }
-    .btn-new { background: rgba(255, 215, 0, 0.12); color: #fcd34d; border: 1px solid rgba(255, 215, 0, 0.3); }
-    .btn-new:hover { background: #ffd700; color: #0a0f1c; transform: translateY(-2px); }
+    .btn-new { background: rgba(255, 51, 51, 0.12); color: #ff6666; border: 1px solid rgba(255, 51, 51, 0.3); }
+    .btn-new:hover { background: #ff3333; color: white; transform: translateY(-2px); }
 
     .btn {
       display: inline-flex;
@@ -504,11 +506,11 @@
     .btn-secondary:hover { background: #334155; transform: translateY(-2px); }
     .btn-whatsapp { background: #25D366; color: #0a0f1c; }
     .btn-whatsapp:hover { background: #20bd59; transform: translateY(-2px); }
-    .btn-gold { background: linear-gradient(135deg, #ffd700, #ccaa00); color: #0a0f1c; }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3); }
+    .btn-gold { background: linear-gradient(135deg, #ff3333, #cc0000); color: white; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 51, 51, 0.3); }
 
     .forex-area { padding: 48px 40px; margin: 48px 0; text-align: center; }
-    .price-tag { font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 20px 0; font-family: 'JetBrains Mono', monospace; }
+    .price-tag { font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #0064ff, #ff3333); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 20px 0; font-family: 'JetBrains Mono', monospace; }
     .video-wrapper { margin: 48px 0; overflow: hidden; padding: 0; border-radius: 24px; }
     .video-wrapper iframe { width: 100%; aspect-ratio: 16 / 9; display: block; }
 
@@ -524,12 +526,12 @@
     .payment-details-area {
       margin-top: 28px;
       padding-top: 20px;
-      border-top: 1px solid rgba(255,215,0,0.2);
+      border-top: 1px solid rgba(255,51,51,0.2);
       text-align: center;
     }
     .payment-details-area h4 {
       font-size: 0.9rem;
-      color: #ffd700;
+      color: #ff3333;
       margin-bottom: 12px;
       letter-spacing: 1px;
     }
@@ -572,7 +574,7 @@
       background: rgba(15, 23, 42, 0.98);
       backdrop-filter: blur(20px);
       border-radius: 32px;
-      border: 1px solid rgba(255, 215, 0, 0.5);
+      border: 1px solid rgba(255, 51, 51, 0.5);
       max-width: 480px;
       width: 90%;
       padding: 28px 24px 32px;
@@ -587,7 +589,7 @@
     .affiliate-popup h3 {
       font-size: 1.6rem;
       margin-bottom: 8px;
-      background: linear-gradient(135deg, #ffd700, #0064ff);
+      background: linear-gradient(135deg, #ff3333, #0064ff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -617,7 +619,7 @@
     .affiliate-card:hover {
       background: rgba(0, 100, 255, 0.2);
       transform: translateX(6px);
-      border-color: #ffd700;
+      border-color: #ff3333;
     }
     .affiliate-icon {
       font-size: 2.2rem;
@@ -658,6 +660,104 @@
       color: white;
     }
 
+    /* Expert Trader Kairon Analysis Popup */
+    .kairon-popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      z-index: 20001;
+      justify-content: center;
+      align-items: center;
+    }
+    .kairon-popup-overlay.show {
+      display: flex;
+    }
+    .kairon-popup {
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 32px;
+      border: 2px solid linear-gradient(135deg, #0064ff, #ff3333);
+      max-width: 520px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px 24px 32px;
+      animation: popupFadeIn 0.3s ease-out;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+    .kairon-popup h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #0064ff, #ff3333);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .kairon-popup .price-badge {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffd700;
+      margin: 12px 0;
+    }
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      color: #a5b4fc;
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(0,100,255,0.3);
+      border-radius: 12px;
+      color: white;
+      font-family: inherit;
+    }
+    .payment-instructions {
+      background: rgba(0,100,255,0.1);
+      padding: 12px;
+      border-radius: 12px;
+      margin: 12px 0;
+      font-size: 0.8rem;
+      display: none;
+    }
+    .payment-instructions.show {
+      display: block;
+    }
+    .btn-buy {
+      width: 100%;
+      justify-content: center;
+      padding: 14px;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      margin-top: 16px;
+    }
+    .close-kairon-btn {
+      background: rgba(255,255,255,0.05);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 40px;
+      color: #cbd5e1;
+      cursor: pointer;
+      margin-top: 12px;
+      width: 100%;
+      font-weight: 500;
+    }
+    .close-kairon-btn:hover {
+      background: #ff4466;
+      color: white;
+    }
+
     /* Modal Styles */
     .modal {
       display: none;
@@ -684,7 +784,7 @@
       max-height: 85vh;
       overflow-y: auto;
     }
-    .modal-content h3 { margin-bottom: 20px; color: #ffd700; }
+    .modal-content h3 { margin-bottom: 20px; color: #ff3333; }
     .modal-content input, .modal-content textarea, .modal-content select {
       width: 100%;
       padding: 12px;
@@ -704,7 +804,7 @@
     }
 
     footer { text-align: center; padding: 48px 0 40px; border-top: 1px solid var(--footer-border); margin-top: 48px; font-size: 0.75rem; color: var(--text-secondary); transition: border-color 0.3s ease; }
-    .scroll-top { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #0064ff, #ffd700); color: #0a0f1c; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: all 0.2s; z-index: 100; border: none; }
+    .scroll-top { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #0064ff, #ff3333); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: all 0.2s; z-index: 100; border: none; }
     .scroll-top.visible { opacity: 1; }
     .scroll-top:hover { transform: scale(1.05); }
 
@@ -719,8 +819,8 @@
     .chat-option { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 14px; text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: 1px solid rgba(255,255,255,0.05); }
     .chat-option i { font-size: 22px; width: 32px; }
     .chat-option span { font-size: 0.9rem; font-weight: 500; }
-    .ai-option { background: linear-gradient(135deg, rgba(0,100,255,0.2), rgba(255,215,0,0.1)); border-color: rgba(0,100,255,0.3); color: #60a5fa; }
-    .ai-option:hover { background: linear-gradient(135deg, rgba(0,100,255,0.4), rgba(255,215,0,0.2)); transform: translateX(-5px); }
+    .ai-option { background: linear-gradient(135deg, rgba(0,100,255,0.2), rgba(255,51,51,0.1)); border-color: rgba(0,100,255,0.3); color: #60a5fa; }
+    .ai-option:hover { background: linear-gradient(135deg, rgba(0,100,255,0.4), rgba(255,51,51,0.2)); transform: translateX(-5px); }
     .whatsapp-option { background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.3); color: #25D366; }
     .whatsapp-option:hover { background: rgba(37, 211, 102, 0.3); transform: translateX(-5px); }
 
@@ -744,9 +844,9 @@
       align-items: center;
       justify-content: center;
       font-size: 28px;
-      color: #ffd700;
+      color: #ff3333;
       box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-      border: 1px solid rgba(255,215,0,0.6);
+      border: 1px solid rgba(255,51,51,0.6);
       transition: 0.1s linear;
       cursor: pointer;
     }
@@ -762,7 +862,7 @@
       flex-direction: column;
       gap: 10px;
       min-width: 210px;
-      border: 1px solid rgba(255,215,0,0.3);
+      border: 1px solid rgba(255,51,51,0.3);
       z-index: 10002;
     }
     .social-float-menu.show {
@@ -842,13 +942,17 @@
     }
     body.light-mode .modal-content,
     body.light-mode .affiliate-popup,
-    body.light-mode .chat-menu {
+    body.light-mode .chat-menu,
+    body.light-mode .kairon-popup {
       background: rgba(255, 255, 255, 0.98);
       color: #1e293b;
     }
     body.light-mode .modal-content input,
     body.light-mode .modal-content textarea,
-    body.light-mode .modal-content select {
+    body.light-mode .modal-content select,
+    body.light-mode .kairon-popup input,
+    body.light-mode .kairon-popup select,
+    body.light-mode .kairon-popup textarea {
       background: rgba(0, 0, 0, 0.05);
       color: #1e293b;
     }
@@ -919,6 +1023,14 @@
     </div>
   </div>
 
+  <!-- NEW: GET EXPERT TRADER KAIRON ANALYSIS BUTTON -->
+  <div style="text-align: center; margin: 20px 0 30px;">
+    <button id="openKaironBtn" class="btn" style="background: linear-gradient(135deg, #ff3333, #0064ff); color: white; padding: 16px 40px; font-size: 1.2rem; box-shadow: 0 0 20px rgba(255,51,51,0.5); animation: pulse 1.5s infinite;">
+      🚀 Get Expert Trader Kairon Analysis 🚀
+    </button>
+    <p style="font-size: 0.7rem; color: #ff6666; margin-top: 8px;">Advanced Market Prediction + Bot Integration — $65 USD</p>
+  </div>
+
   <!-- DERIV API SECTION -->
   <div id="deriv-tools">
     <div class="card">
@@ -944,8 +1056,8 @@
   <div id="copy-trading" class="service-card">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 32px;">
       <div style="flex: 1;">
-        <div style="font-size: 0.7rem; color: #ffd700; letter-spacing: 1px; margin-bottom: 12px;">✦ COPY TRADING ✦</div>
-        <h2 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 16px;">Copy my trades/Management <span style="color:#ffd700;">40% Profit Split</span></h2>
+        <div style="font-size: 0.7rem; color: #ff3333; letter-spacing: 1px; margin-bottom: 12px;">✦ COPY TRADING ✦</div>
+        <h2 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 16px;">Copy my trades/Management <span style="color:#ff3333;">40% Profit Split</span></h2>
         <p style="color: #cbd5e1; line-height: 1.6;">Let me trade for you. You copy trades/I manage your forex account professionally using proven strategies.</p>
         
         <div class="profit-split">💰 40% / 60% Split</div>
@@ -963,7 +1075,7 @@
         </button>
       </div>
       <div style="text-align: center; min-width: 150px;">
-        <i class="fas fa-chart-line" style="font-size: 80px; color: #ffd700; opacity: 0.7;"></i>
+        <i class="fas fa-chart-line" style="font-size: 80px; color: #ff3333; opacity: 0.7;"></i>
         <p style="margin-top: 12px; font-size: 0.7rem; color:#5a6a82;">Managed Accounts</p>
       </div>
     </div>
@@ -1004,7 +1116,7 @@
 
   <!-- FOREX BOT SECTION -->
   <div id="forex-bot" class="forex-area">
-    <div style="font-size: 0.7rem; color: #fcd34d; letter-spacing: 1px;">✦ PROPRIETARY SYSTEM</div>
+    <div style="font-size: 0.7rem; color: #ff6666; letter-spacing: 1px;">✦ PROPRIETARY SYSTEM</div>
     <h2 style="font-size: 1.8rem; font-weight: 600; margin: 16px 0;">Forex Bot — Fully Automated</h2>
     <p style="max-width: 500px; margin: 0 auto; color: #cbd5e1; font-size: 0.9rem;">MT4/MT5 compatible. Risk management, live monitoring, lifetime updates.</p>
     <div class="price-tag">$85 USD (Offer🥳)</div>
@@ -1021,14 +1133,14 @@
     </div>
 
     <!-- NEW: FREE BOT APPLICATION SECTION -->
-    <div style="margin-top: 40px; padding: 32px; background: linear-gradient(135deg, rgba(0,100,255,0.1), rgba(255,215,0,0.05)); border-radius: 28px; border: 2px solid rgba(255,215,0,0.4);">
+    <div style="margin-top: 40px; padding: 32px; background: linear-gradient(135deg, rgba(0,100,255,0.1), rgba(255,51,51,0.05)); border-radius: 28px; border: 2px solid rgba(255,51,51,0.4);">
       
       <!-- Step 1: Affiliate Link -->
       <div style="text-align: center; margin-bottom: 28px;">
-        <div style="font-size: 0.8rem; color: #ffd700; letter-spacing: 2px; margin-bottom: 8px;">⭐ STEP 1 ⭐</div>
+        <div style="font-size: 0.8rem; color: #ff3333; letter-spacing: 2px; margin-bottom: 8px;">⭐ STEP 1 ⭐</div>
         <h3 style="font-size: 1.3rem; margin-bottom: 12px;">GET THE FOREX EA </h3>
         <p style="color: #cbd5e1; font-size: 0.85rem; margin-bottom: 16px;">Click below to register (it's free). You must complete this step before applying for the bot.</p>
-        <a href="https://www.puprime.partners/forex-trading-account/?affid=7389780" target="_blank" id="affiliateLinkBtn" class="btn btn-gold" style="background: linear-gradient(135deg, #ffd700, #ffaa00); font-size: 1rem; padding: 14px 32px;">
+        <a href="https://www.puprime.partners/forex-trading-account/?affid=7389780" target="_blank" id="affiliateLinkBtn" class="btn btn-gold" style="background: linear-gradient(135deg, #ff3333, #cc0000); font-size: 1rem; padding: 14px 32px;">
           🌐 CREATE FOREX ACCOUNT NOW → FREE
         </a>
         <p style="font-size: 0.7rem; color: #5a6a82; margin-top: 10px;">Opens in new tab • Takes 2-3 minutes</p>
@@ -1086,7 +1198,7 @@
   <!-- CLASSES SECTION -->
   <div class="classes-section" id="live-classes">
     <div class="section-badge">🎓 LIVE TRADING EDUCATION</div>
-    <h2 style="font-size: 1.9rem; font-weight: 700; margin-bottom: 16px;">Learn from <span style="background: linear-gradient(135deg, #0064ff, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent;">Caleb Orenge</span></h2>
+    <h2 style="font-size: 1.9rem; font-weight: 700; margin-bottom: 16px;">Learn from <span style="background: linear-gradient(135deg, #0064ff, #ff3333); -webkit-background-clip: text; background-clip: text; color: transparent;">Caleb Orenge</span></h2>
     <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto;">Daily live classes • Real market analysis • Q&A included</p>
 
     <div class="class-card">
@@ -1150,7 +1262,7 @@
 </div>
 </div>
 
-<!-- AFFILIATE POPUP -->
+<!-- AFFILIATE POPUP WITH 3 LINKS -->
 <div id="affiliatePopup" class="affiliate-popup-overlay">
   <div class="affiliate-popup">
     <h3>🔥 Featured Affiliate Offers</h3>
@@ -1166,8 +1278,71 @@
         <div class="affiliate-info"><strong>PU Prime</strong><small>Create Forex Account • Low spreads • Fast execution</small></div>
         <i class="fas fa-arrow-right"></i>
       </a>
+      <!-- NEW 3rd AFFILIATE LINK - ExpertOption -->
+      <a href="https://expertoption.com/affiliate" target="_blank" class="affiliate-card">
+        <div class="affiliate-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="affiliate-info"><strong>ExpertOption</strong><small>Binary Options • High payouts • User-friendly</small></div>
+        <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
     <button class="close-popup-btn" id="closePopupBtn">CLOSE</button>
+  </div>
+</div>
+
+<!-- EXPERT TRADER KAIRON ANALYSIS POPUP -->
+<div id="kaironPopup" class="kairon-popup-overlay">
+  <div class="kairon-popup">
+    <h3>🤖 Expert Trader Kairon Analysis</h3>
+    <div class="price-badge">💰 $65 USD (8,500 KSH)</div>
+    <p style="color: #cbd5e1; margin-bottom: 20px;">Advanced market prediction + Bot integration to your third party</p>
+    
+    <form id="kaironPurchaseForm">
+      <div class="form-group">
+        <label>📧 Email Address *</label>
+        <input type="email" id="kaironEmail" required placeholder="your@email.com">
+      </div>
+      
+      <div class="form-group">
+        <label>🔐 Desired Password *</label>
+        <input type="password" id="kaironPassword" required placeholder="Choose a password for your account">
+      </div>
+      
+      <div class="form-group">
+        <label>💳 Payment Method *</label>
+        <select id="kaironPaymentMethod" required>
+          <option value="">-- Select --</option>
+          <option value="M-Pesa">🇰🇪 M-Pesa (Kenya)</option>
+          <option value="Crypto">₿ Crypto (USDT/BTC)</option>
+        </select>
+      </div>
+      
+      <!-- M-Pesa Instructions -->
+      <div id="mpesaInstructions" class="payment-instructions">
+        <strong>📱 M-Pesa Instructions:</strong><br>
+        Send KES 8,500 to <strong>+254 799 045 699</strong> (Calekyz FX)<br>
+        Account Name: Caleb Orenge<br><br>
+        After payment, attach the M-Pesa message below.
+      </div>
+      
+      <!-- Crypto Instructions -->
+      <div id="cryptoInstructions" class="payment-instructions">
+        <strong>₿ Crypto Instructions:</strong><br>
+        Send $65 USDT (TRC20) to: <strong>TXm8x4Z7n9Qw3EfR6tY2uIpA1sD5fG8hJ9kL</strong><br>
+        Also accepts BTC on request.<br><br>
+        After sending, attach transaction hash/screenshot below.
+      </div>
+      
+      <div class="form-group">
+        <label>📎 Attach Proof (M-Pesa message or Crypto TX hash)</label>
+        <textarea id="kaironProof" rows="3" placeholder="Paste your M-Pesa message details or crypto transaction hash here..." required></textarea>
+      </div>
+      
+      <button type="submit" class="btn btn-whatsapp btn-buy">
+        📤 SEND TO WHATSAPP → Complete Purchase
+      </button>
+    </form>
+    
+    <button class="close-kairon-btn" id="closeKaironBtn">Cancel</button>
   </div>
 </div>
 
@@ -1226,6 +1401,71 @@
   if (forexPortalBtn) forexPortalBtn.addEventListener('click', () => affiliatePopup.classList.add('show'));
   if (closePopup) closePopup.addEventListener('click', () => affiliatePopup.classList.remove('show'));
   if (affiliatePopup) affiliatePopup.addEventListener('click', (e) => { if (e.target === affiliatePopup) affiliatePopup.classList.remove('show'); });
+
+  // Expert Trader Kairon Popup
+  const openKaironBtn = document.getElementById('openKaironBtn');
+  const kaironPopup = document.getElementById('kaironPopup');
+  const closeKaironBtn = document.getElementById('closeKaironBtn');
+  const paymentMethodSelect = document.getElementById('kaironPaymentMethod');
+  const mpesaInstructions = document.getElementById('mpesaInstructions');
+  const cryptoInstructions = document.getElementById('cryptoInstructions');
+  
+  if (openKaironBtn) {
+    openKaironBtn.addEventListener('click', () => kaironPopup.classList.add('show'));
+  }
+  if (closeKaironBtn) {
+    closeKaironBtn.addEventListener('click', () => kaironPopup.classList.remove('show'));
+  }
+  if (kaironPopup) {
+    kaironPopup.addEventListener('click', (e) => { if (e.target === kaironPopup) kaironPopup.classList.remove('show'); });
+  }
+  
+  // Show payment instructions based on selection
+  if (paymentMethodSelect) {
+    paymentMethodSelect.addEventListener('change', function() {
+      mpesaInstructions.classList.remove('show');
+      cryptoInstructions.classList.remove('show');
+      if (this.value === 'M-Pesa') {
+        mpesaInstructions.classList.add('show');
+      } else if (this.value === 'Crypto') {
+        cryptoInstructions.classList.add('show');
+      }
+    });
+  }
+  
+  // Kairon Purchase Form - Send to WhatsApp
+  const kaironForm = document.getElementById('kaironPurchaseForm');
+  if (kaironForm) {
+    kaironForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('kaironEmail').value;
+      const password = document.getElementById('kaironPassword').value;
+      const paymentMethod = document.getElementById('kaironPaymentMethod').value;
+      const proof = document.getElementById('kaironProof').value;
+      
+      if (!email || !password || !paymentMethod || !proof) {
+        alert('❌ Please fill in all fields.');
+        return;
+      }
+      
+      const message = `*NEW EXPERT TRADER KAIRON ANALYSIS PURCHASE*%0A%0A` +
+        `*Product:* Advanced Market Prediction + Bot Integration%0A` +
+        `*Price:* $65 USD (8,500 KSH)%0A%0A` +
+        `*Email:* ${email}%0A` +
+        `*Desired Password:* ${password}%0A` +
+        `*Payment Method:* ${paymentMethod}%0A` +
+        `*Payment Proof/Transaction Details:* ${proof}%0A%0A` +
+        `Please send access credentials and bot integration details.`;
+      
+      window.open(`https://wa.me/254799045699?text=${message}`, '_blank');
+      alert('✅ Request sent! I will respond on WhatsApp shortly with your access credentials.');
+      kaironForm.reset();
+      mpesaInstructions.classList.remove('show');
+      cryptoInstructions.classList.remove('show');
+      kaironPopup.classList.remove('show');
+    });
+  }
 
   // Modal functions
   function closeCopyModal() { document.getElementById('copyTradingModal')?.classList.remove('show'); }
@@ -1333,6 +1573,11 @@
   document.addEventListener('click', (e) => { if (!socialContainer.contains(e.target)) socialFloatMenu.classList.remove('show'); });
   const savedLeftPos = localStorage.getItem('socialFloatLeft'), savedTopPos = localStorage.getItem('socialFloatTop');
   if (savedLeftPos && savedTopPos) { socialContainer.style.left = savedLeftPos + 'px'; socialContainer.style.top = savedTopPos + 'px'; socialContainer.style.transform = 'none'; }
+  
+  // Add keyframe animation for button pulse
+  const style = document.createElement('style');
+  style.textContent = `@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,51,51,0.7); } 70% { box-shadow: 0 0 0 15px rgba(255,51,51,0); } 100% { box-shadow: 0 0 0 0 rgba(255,51,51,0); } }`;
+  document.head.appendChild(style);
 </script>
 
 <!-- CHATBASE EMBED CODE - YOUR EXACT PROVIDED CODE -->
