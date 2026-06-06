@@ -646,16 +646,33 @@
       document.getElementById('kaironPopup')?.classList.remove('show');
     });
   }
-
-  // (Existing loader, canvas, theme, popups, etc. remain unchanged - copied from original)
-  // ... (All original loader, theme, modal close, scroll, welcome popup, canvas, etc. code would be here. For brevity I'm including the essential functions but assuming they are the same as original.)
-  // For completeness, include the missing parts from original script that are not repeated above (loader, theme, etc.)
-  // Since we need to keep everything functioning, I will add the remaining script parts from original.
 </script>
 
-<!-- Add the rest of original JavaScript for loader, theme, etc. (kept intact) -->
+<!-- ========== WELCOME POPUP HTML + STYLES (moved here, before the script that uses it) ========== -->
+<div id="welcomeBurnerPopup" class="welcome-popup-overlay">
+  <div class="welcome-popup">
+    <button class="welcome-popup-close" id="closeWelcomePopup">&times;</button>
+    <div class="welcome-popup-icon">🔥</div>
+    <h3>Special Offers Just For You!</h3>
+    <p class="welcome-subtitle">Click on any offer to jump directly to that section</p>
+    <div class="welcome-offers-grid">
+      <div class="welcome-offer-card" data-section="kairon"><div class="offer-icon">🚀</div><div class="offer-info"><div class="offer-title">Expert Trader Kairon</div><div class="offer-price">$65 USD</div><div class="offer-desc">Advanced Market Prediction + Bot Integration</div></div></div>
+      <div class="welcome-offer-card" data-section="forexbot"><div class="offer-icon">💱</div><div class="offer-info"><div class="offer-title">Forex Bot</div><div class="offer-price">$85 USD (Offer 🥳)</div><div class="offer-desc">Fully Automated MT4/MT5</div></div></div>
+      <div class="welcome-offer-card" data-section="classes"><div class="offer-icon">📚</div><div class="offer-info"><div class="offer-title">Live Trading Classes</div><div class="offer-price">From $30 USD</div><div class="offer-desc">Daily 9PM - 11PM with Caleb</div></div></div>
+      <div class="welcome-offer-card" data-section="deriv"><div class="offer-icon">⚡</div><div class="offer-info"><div class="offer-title">Deriv Third Party API</div><div class="offer-price">Institutional Grade</div><div class="offer-desc">Automated Binary Trading</div></div></div>
+      <div class="welcome-offer-card" data-section="affiliate"><div class="offer-icon">🔗</div><div class="offer-info"><div class="offer-title">Affiliate Portals</div><div class="offer-price">Deriv | PU Prime | Just Markets</div><div class="offer-desc">Create free accounts & start trading</div></div></div>
+    </div>
+    <button class="welcome-dismiss-btn" id="dismissWelcomePopup">Continue to Site →</button>
+    <p class="welcome-hint">⏱️ This popup won't show again for 24 hours</p>
+  </div>
+</div>
+<style>
+.welcome-popup-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);z-index:30000;display:none;justify-content:center;align-items:center;animation:fadeInBackdrop 0.3s ease;}.welcome-popup-overlay.show{display:flex;}@keyframes fadeInBackdrop{from{opacity:0;}to{opacity:1;}}.welcome-popup{background:rgba(15,23,42,0.98);backdrop-filter:blur(24px);border-radius:32px;border:2px solid linear-gradient(135deg,#0064ff,#ff3333);max-width:600px;width:90%;max-height:85vh;overflow-y:auto;padding:32px 28px;position:relative;animation:popupSlideIn 0.4s cubic-bezier(0.34,1.2,0.64,1);box-shadow:0 30px 60px rgba(0,0,0,0.5);}@keyframes popupSlideIn{from{opacity:0;transform:scale(0.9) translateY(30px);}to{opacity:1;transform:scale(1) translateY(0);}}.welcome-popup-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:28px;cursor:pointer;color:#94a3b8;transition:all 0.2s;}.welcome-popup-close:hover{color:#ff4466;transform:scale(1.1);}.welcome-popup-icon{font-size:48px;text-align:center;margin-bottom:12px;}.welcome-popup h3{font-size:1.8rem;text-align:center;background:linear-gradient(135deg,#0064ff,#ff3333);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px;}.welcome-subtitle{text-align:center;color:#94a3b8;font-size:0.85rem;margin-bottom:24px;}.welcome-offers-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}.welcome-offer-card{display:flex;align-items:center;gap:16px;background:rgba(0,100,255,0.08);border:1px solid rgba(0,100,255,0.2);border-radius:20px;padding:14px 18px;cursor:pointer;transition:all 0.25s ease;}.welcome-offer-card:hover{background:rgba(0,100,255,0.2);border-color:#ff3333;transform:translateX(8px) scale(1.01);}.welcome-offer-card .offer-icon{font-size:32px;min-width:50px;text-align:center;}.welcome-offer-card .offer-info{flex:1;}.welcome-offer-card .offer-title{font-weight:700;font-size:1.1rem;margin-bottom:4px;color:#eef2ff;}.welcome-offer-card .offer-price{font-size:0.8rem;color:#ffd700;font-weight:600;}.welcome-offer-card .offer-desc{font-size:0.7rem;color:#94a3b8;margin-top:4px;}.welcome-dismiss-btn{width:100%;padding:14px;background:linear-gradient(135deg,#0064ff,#0050cc);border:none;border-radius:40px;color:white;font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.2s;margin-top:8px;}.welcome-dismiss-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,100,255,0.3);}.welcome-hint{text-align:center;font-size:0.65rem;color:#5a6a82;margin-top:16px;}body.light-mode .welcome-popup{background:rgba(255,255,255,0.98);}body.light-mode .welcome-offer-card .offer-title{color:#1e293b;}
+</style>
+
+<!-- ========== REMAINING ORIGINAL SCRIPTS (Loader, Theme, Canvas, Popups, etc.) ========== -->
 <script>
-  // ========== REMAINING ORIGINAL SCRIPTS (Loader, Theme, Canvas, Popups, etc.) ==========
+  // Theme, popups, canvas, loader, drag, etc. (preserved from original)
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   function setTheme(isDark) {
     if (isDark) { document.body.classList.remove('light-mode'); localStorage.setItem('theme', 'dark'); if(themeToggleBtn){themeToggleBtn.innerHTML='<i class="fas fa-sun"></i> <span id="themeText">Light</span>';} } 
@@ -741,10 +758,9 @@
   if(socialBtnDrag){ socialBtnDrag.addEventListener('mousedown', onDragStart); window.addEventListener('mousemove', onDragMove); window.addEventListener('mouseup', onDragEnd); socialBtnDrag.addEventListener('touchstart', onDragStart, {passive:false}); window.addEventListener('touchmove', onDragMove, {passive:false}); window.addEventListener('touchend', onDragEnd); socialBtnDrag.addEventListener('click', (e) => { if(isDragging) return; e.stopPropagation(); socialMenuDrag.classList.toggle('show'); }); document.addEventListener('click', (e) => { if(!socialContainerDrag.contains(e.target)) socialMenuDrag.classList.remove('show'); }); }
   const savedLeft = localStorage.getItem('socialFloatLeft'); const savedTop = localStorage.getItem('socialFloatTop'); if(savedLeft && savedTop){ socialContainerDrag.style.left = savedLeft + 'px'; socialContainerDrag.style.top = savedTop + 'px'; socialContainerDrag.style.transform = 'none'; }
   
-  // Welcome popup (remaining)
   const stylePulse = document.createElement('style'); stylePulse.textContent = `@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,51,51,0.7); } 70% { box-shadow: 0 0 0 15px rgba(255,51,51,0); } 100% { box-shadow: 0 0 0 0 rgba(255,51,51,0); } }`; document.head.appendChild(stylePulse);
   
-  // Welcome popup logic (as before)
+  // ========== WELCOME POPUP INITIALIZATION (now safe because HTML exists above) ==========
   (function() {
     const lastShownWelcome = localStorage.getItem('welcomePopupShown');
     const nowTime = Date.now();
@@ -776,15 +792,7 @@
   })();
 </script>
 
-<!-- Welcome Popup HTML structure (added at end) -->
-<div id="welcomeBurnerPopup" class="welcome-popup-overlay">
-  <div class="welcome-popup"><button class="welcome-popup-close" id="closeWelcomePopup">&times;</button><div class="welcome-popup-icon">🔥</div><h3>Special Offers Just For You!</h3><p class="welcome-subtitle">Click on any offer to jump directly to that section</p><div class="welcome-offers-grid"><div class="welcome-offer-card" data-section="kairon"><div class="offer-icon">🚀</div><div class="offer-info"><div class="offer-title">Expert Trader Kairon</div><div class="offer-price">$65 USD</div><div class="offer-desc">Advanced Market Prediction + Bot Integration</div></div></div><div class="welcome-offer-card" data-section="forexbot"><div class="offer-icon">💱</div><div class="offer-info"><div class="offer-title">Forex Bot</div><div class="offer-price">$85 USD (Offer 🥳)</div><div class="offer-desc">Fully Automated MT4/MT5</div></div></div><div class="welcome-offer-card" data-section="classes"><div class="offer-icon">📚</div><div class="offer-info"><div class="offer-title">Live Trading Classes</div><div class="offer-price">From $30 USD</div><div class="offer-desc">Daily 9PM - 11PM with Caleb</div></div></div><div class="welcome-offer-card" data-section="deriv"><div class="offer-icon">⚡</div><div class="offer-info"><div class="offer-title">Deriv Third Party API</div><div class="offer-price">Institutional Grade</div><div class="offer-desc">Automated Binary Trading</div></div></div><div class="welcome-offer-card" data-section="affiliate"><div class="offer-icon">🔗</div><div class="offer-info"><div class="offer-title">Affiliate Portals</div><div class="offer-price">Deriv | PU Prime | Just Markets</div><div class="offer-desc">Create free accounts & start trading</div></div></div></div><button class="welcome-dismiss-btn" id="dismissWelcomePopup">Continue to Site →</button><p class="welcome-hint">⏱️ This popup won't show again for 24 hours</p></div>
-</div>
-<style>
-.welcome-popup-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);z-index:30000;display:none;justify-content:center;align-items:center;animation:fadeInBackdrop 0.3s ease;}.welcome-popup-overlay.show{display:flex;}@keyframes fadeInBackdrop{from{opacity:0;}to{opacity:1;}}.welcome-popup{background:rgba(15,23,42,0.98);backdrop-filter:blur(24px);border-radius:32px;border:2px solid linear-gradient(135deg,#0064ff,#ff3333);max-width:600px;width:90%;max-height:85vh;overflow-y:auto;padding:32px 28px;position:relative;animation:popupSlideIn 0.4s cubic-bezier(0.34,1.2,0.64,1);box-shadow:0 30px 60px rgba(0,0,0,0.5);}@keyframes popupSlideIn{from{opacity:0;transform:scale(0.9) translateY(30px);}to{opacity:1;transform:scale(1) translateY(0);}}.welcome-popup-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:28px;cursor:pointer;color:#94a3b8;transition:all 0.2s;}.welcome-popup-close:hover{color:#ff4466;transform:scale(1.1);}.welcome-popup-icon{font-size:48px;text-align:center;margin-bottom:12px;}.welcome-popup h3{font-size:1.8rem;text-align:center;background:linear-gradient(135deg,#0064ff,#ff3333);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px;}.welcome-subtitle{text-align:center;color:#94a3b8;font-size:0.85rem;margin-bottom:24px;}.welcome-offers-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}.welcome-offer-card{display:flex;align-items:center;gap:16px;background:rgba(0,100,255,0.08);border:1px solid rgba(0,100,255,0.2);border-radius:20px;padding:14px 18px;cursor:pointer;transition:all 0.25s ease;}.welcome-offer-card:hover{background:rgba(0,100,255,0.2);border-color:#ff3333;transform:translateX(8px) scale(1.01);}.welcome-offer-card .offer-icon{font-size:32px;min-width:50px;text-align:center;}.welcome-offer-card .offer-info{flex:1;}.welcome-offer-card .offer-title{font-weight:700;font-size:1.1rem;margin-bottom:4px;color:#eef2ff;}.welcome-offer-card .offer-price{font-size:0.8rem;color:#ffd700;font-weight:600;}.welcome-offer-card .offer-desc{font-size:0.7rem;color:#94a3b8;margin-top:4px;}.welcome-dismiss-btn{width:100%;padding:14px;background:linear-gradient(135deg,#0064ff,#0050cc);border:none;border-radius:40px;color:white;font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.2s;margin-top:8px;}.welcome-dismiss-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,100,255,0.3);}.welcome-hint{text-align:center;font-size:0.65rem;color:#5a6a82;margin-top:16px;}body.light-mode .welcome-popup{background:rgba(255,255,255,0.98);}body.light-mode .welcome-offer-card .offer-title{color:#1e293b;}
-</style>
-
-<!-- Chatbase embed -->
+<!-- Chatbase embed (unchanged) -->
 <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yvOGp-C94Skb34vFutYzd";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
